@@ -339,6 +339,164 @@ a {
 }
 
 /* ==========================================================================
+   2. ОБЛОЖКИ — четыре краски серии.
+   Каждая обложка нарисована кодом по печатному макету (плашка 1+0):
+   цвет задаётся переменной --c прямо в index.html, растяжки керн-шкалы
+   считаются от неё автоматически через color-mix.
+   Когда появятся фотографии, блок .cover можно заменить на <img>.
+   ========================================================================== */
+
+.covers-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+/* Кнопка-обёртка: клик выбирает цвет и ведёт к покупке */
+.cover-item {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  text-align: center;
+  font: inherit;
+}
+
+/* Сама обложка: пропорции A5 (1 : 1.41), плашка цвета --c */
+.cover {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  aspect-ratio: 1 / 1.41;
+  background: var(--c);
+  color: var(--paper);
+  border-radius: 2px;
+  padding: 12% 8% 0;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.cover-item:hover .cover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 32px rgba(36, 43, 39, 0.18);
+}
+
+/* Верхняя строка обложки */
+.cover-top {
+  font-family: var(--font-mono);
+  font-size: clamp(6px, 0.55vw, 8px);
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  opacity: 0.75;
+  align-self: flex-start;
+  text-align: left;
+}
+
+/* Название по центру */
+.cover-name {
+  font-family: var(--font-mono);
+  font-weight: 500;
+  font-size: clamp(15px, 1.9vw, 24px);
+  letter-spacing: 0.3em;
+  margin-left: 0.3em;
+  text-transform: uppercase;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+/* Строка студии внизу */
+.cover-studio {
+  font-family: var(--font-mono);
+  font-size: clamp(5px, 0.5vw, 7px);
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  opacity: 0.85;
+  margin-bottom: 10%;
+}
+
+/* Керн-шкала по нижнему обрезу обложки: растяжки цвета обложки к бумаге */
+.cover-kern {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  width: calc(100% + 16%); /* компенсируем боковые поля — шкала во всю ширину */
+  margin: 0 -8%;
+}
+
+.cover-kern i {
+  height: 12px;
+}
+
+.cover-kern i:nth-child(1) { background: color-mix(in srgb, var(--c) 88%, #000); }
+.cover-kern i:nth-child(2) { background: color-mix(in srgb, var(--c) 80%, var(--paper)); }
+.cover-kern i:nth-child(3) { background: color-mix(in srgb, var(--c) 62%, var(--paper)); }
+.cover-kern i:nth-child(4) { background: color-mix(in srgb, var(--c) 45%, var(--paper)); }
+.cover-kern i:nth-child(5) { background: color-mix(in srgb, var(--c) 28%, var(--paper)); }
+.cover-kern i:nth-child(6) { background: color-mix(in srgb, var(--c) 12%, var(--paper)); }
+
+/* Подпись цвета под обложкой */
+.cover-caption {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--graphite);
+  margin-top: 14px;
+}
+
+/* Выбранная обложка: рамка цветом краски */
+.cover-item.is-selected .cover {
+  outline: 2px solid var(--ink);
+  outline-offset: 4px;
+}
+
+.cover-item.is-selected .cover-caption {
+  color: var(--ink);
+}
+
+/* ==========================================================================
+   ВЫБОР ЦВЕТА В БЛОКЕ ЦЕНЫ — четыре квадрата-краски
+   ========================================================================== */
+
+.swatches {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  margin-bottom: 10px;
+}
+
+.swatch {
+  width: 36px;
+  height: 36px;
+  border: none;
+  border-radius: 2px;
+  background: var(--c);
+  cursor: pointer;
+  transition: transform 0.15s ease;
+}
+
+.swatch:hover {
+  transform: scale(1.08);
+}
+
+/* Выбранная краска — рамка чернильного цвета */
+.swatch.is-selected {
+  outline: 2px solid var(--ink);
+  outline-offset: 3px;
+}
+
+.swatch-caption {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--graphite);
+  margin-bottom: 28px;
+}
+
+/* ==========================================================================
    СЕТКИ И КАРТОЧКИ
    ========================================================================== */
 
@@ -703,6 +861,20 @@ a {
 @media (max-width: 900px) {
   .grid-3 {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Обложки: 2×2 на планшете и телефоне */
+  .covers-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .cover-name {
+    font-size: clamp(15px, 3.4vw, 24px);
+  }
+
+  .cover-top,
+  .cover-studio {
+    font-size: 6px;
   }
 
   .footer-inner {
