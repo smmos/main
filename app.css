@@ -1,0 +1,522 @@
+/* ==========================================================================
+   СТИЛИ ПРИЛОЖЕНИЯ «РЕШЕНИЕ · ПРОТОКОЛ»
+   --------------------------------------------------------------------------
+   Подключается ПОСЛЕ styles.css и использует те же переменные (:root).
+   Здесь только то, что нужно интерактивной версии блокнота:
+   поля ввода, карточки-развороты, рамки документа, печать.
+   ========================================================================== */
+
+/* --- Общая колонка приложения: узкая, как страница блокнота --- */
+.app-main {
+  max-width: 720px;
+  padding-bottom: 96px;
+}
+
+.app-intro {
+  padding: clamp(48px, 7vw, 80px) 0 32px;
+}
+
+.app-title {
+  font-family: var(--font-mono);
+  font-weight: 500;
+  font-size: clamp(32px, 6vw, 52px);
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  margin-bottom: 18px;
+}
+
+.app-lead {
+  color: var(--graphite);
+  max-width: 58ch;
+  margin-bottom: 32px;
+}
+
+/* Подпись про хранение в шапке */
+.app-storage-note {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--graphite);
+  opacity: 0.75;
+  max-width: 160px;
+  line-height: 1.4;
+  text-align: right;
+}
+
+/* Керн-шкала приложения — закреплена под шапкой */
+.kern-app {
+  position: sticky;
+  top: 57px; /* высота шапки */
+  z-index: 40;
+}
+
+.kern-app .kern-seg {
+  min-height: 40px;
+}
+
+/* --- Разделы стадий --- */
+.app-stage {
+  padding-top: 40px;
+  scroll-margin-top: 120px; /* якорь не прячется под шапкой и керном */
+}
+
+/* Шапка стадии — как шмуцтитул: плашка хвои */
+.stage-head {
+  background: var(--pine);
+  color: var(--paper);
+  border-radius: 2px;
+  padding: 28px 28px 30px;
+  margin-bottom: 28px;
+}
+
+.stage-head-top {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  opacity: 0.75;
+  margin-bottom: 16px;
+}
+
+.stage-head-title {
+  font-weight: 700;
+  font-size: clamp(22px, 3.5vw, 28px);
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  margin-bottom: 12px;
+}
+
+/* Крупный номер стадии */
+.stage-head-title span {
+  font-size: 1.6em;
+  font-weight: 700;
+}
+
+.stage-head-text {
+  font-size: 15.5px;
+  line-height: 1.6;
+  opacity: 0.92;
+  max-width: 56ch;
+}
+
+/* --- Блок правил (инструкция «как сформулировать вопрос») --- */
+.rules {
+  border: 1px solid var(--line);
+  border-radius: 2px;
+  background: var(--paper-page);
+  padding: 22px 24px;
+  margin-bottom: 28px;
+}
+
+.rules-title {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--pine);
+  margin-bottom: 14px;
+}
+
+.rules-list {
+  padding-left: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-size: 15px;
+  color: var(--graphite);
+}
+
+/* --- Поля ввода --- */
+.field {
+  display: block;
+  margin-bottom: 26px;
+}
+
+/* Подпись поля — моно капсом, как в блокноте */
+.field-label {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--pine);
+  margin-bottom: 8px;
+}
+
+/* Второстепенная подпись (внутри карточек) */
+.field-sublabel {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--graphite);
+  margin-bottom: 6px;
+}
+
+.field-hint {
+  display: block;
+  font-size: 14px;
+  color: var(--graphite);
+  margin-bottom: 10px;
+}
+
+/* Текстовые поля — «страница» с линией, без тяжёлых рамок */
+.field textarea,
+.field input[type="text"],
+.field input[type="date"] {
+  width: 100%;
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--ink);
+  background: var(--paper-page);
+  border: 1px solid var(--line);
+  border-radius: 2px;
+  padding: 12px 14px;
+  resize: vertical;
+}
+
+.field textarea:focus,
+.field input:focus {
+  outline: 2px solid var(--pine);
+  outline-offset: 1px;
+}
+
+/* Компактное поле в строку (даты) */
+.field-inline {
+  max-width: 240px;
+}
+
+/* Сетка из двух полей рядом */
+.field-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+
+.field-grid .field {
+  margin-bottom: 0;
+}
+
+/* --- Три рамки вопроса (1.3) --- */
+.frames {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.frame {
+  display: block;
+  border: 1px solid var(--line);
+  border-radius: 2px;
+  background: var(--paper-page);
+  padding: 14px 16px;
+}
+
+.frame-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--graphite);
+  margin-bottom: 8px;
+}
+
+/* Чекбокс «сжимается живот» — квадратный, цвета хвои */
+.frame-head input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--pine);
+}
+
+.frame textarea {
+  border: none;
+  background: transparent;
+  padding: 0;
+  width: 100%;
+  font-family: var(--font-sans);
+  font-size: 16px;
+  resize: vertical;
+}
+
+.frame textarea:focus {
+  outline: none;
+}
+
+/* --- Карточки вариантов (2.3) и гипотез (стадия 4) --- */
+.variant {
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--pine);
+  border-radius: 2px;
+  background: var(--paper-page);
+  padding: 20px 22px 8px;
+  margin-bottom: 16px;
+}
+
+/* --- Двенадцать версий (3.0): строка = чекбокс + номер + поле --- */
+.twelve {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.twelve-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.twelve-row .num {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--graphite);
+  width: 22px;
+  flex-shrink: 0;
+}
+
+.twelve-row input[type="text"] {
+  flex: 1;
+  font-family: var(--font-sans);
+  font-size: 15px;
+  border: none;
+  border-bottom: 1px solid var(--line);
+  background: transparent;
+  padding: 6px 2px;
+}
+
+.twelve-row input[type="text"]:focus {
+  outline: none;
+  border-bottom-color: var(--pine);
+}
+
+.twelve-row input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  accent-color: var(--pine);
+}
+
+/* --- Развороты «Версия №» --- */
+.version-card {
+  border: 1px solid var(--line);
+  border-top: 4px solid var(--pine);
+  border-radius: 2px;
+  background: var(--paper-page);
+  padding: 20px 22px 8px;
+  margin-bottom: 16px;
+}
+
+/* «Где болит» — винным */
+.field-pain .field-sublabel {
+  color: var(--wine);
+}
+
+/* --- Семь дней поля (стадия 5) --- */
+.day-card {
+  border: 1px solid var(--line);
+  border-radius: 2px;
+  background: var(--paper-page);
+  padding: 16px 18px;
+  margin-bottom: 14px;
+}
+
+.day-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.day-title {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--pine);
+}
+
+/* Шкала энергии дня: пять квадратов-радио */
+.energy {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.energy-label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--graphite);
+  margin-right: 4px;
+}
+
+.energy input {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 1px solid var(--pine);
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+.energy input:checked {
+  background: var(--pine);
+}
+
+.day-card textarea {
+  width: 100%;
+  border: none;
+  background: transparent;
+  font-family: var(--font-sans);
+  font-size: 15px;
+  line-height: 1.6;
+  resize: vertical;
+}
+
+.day-card textarea:focus {
+  outline: none;
+}
+
+/* --- Рамка документа (1.4 и финал) --- */
+.doc-frame {
+  border: 1px solid var(--ink);
+  outline: 1px solid var(--ink);
+  outline-offset: 3px;
+  border-radius: 2px;
+  background: var(--paper-page);
+  padding: 24px 26px 12px;
+  margin: 32px 4px 8px;
+}
+
+.doc-frame-final {
+  padding-bottom: 24px;
+}
+
+/* --- Кнопки действий в финале --- */
+.app-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px;
+  margin-top: 32px;
+}
+
+/* Второстепенная кнопка — контурная */
+.btn-ghost {
+  background: transparent;
+  color: var(--pine);
+}
+
+.btn-ghost:hover {
+  background: var(--pine);
+  color: var(--paper);
+}
+
+/* Опасное действие — тихая текстовая кнопка */
+.btn-danger {
+  border: none;
+  background: none;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  color: var(--wine);
+  text-decoration: underline;
+  cursor: pointer;
+  margin-left: auto;
+}
+
+.app-footnote {
+  margin-top: 56px;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--graphite);
+  padding-left: 16px;
+  border-left: 2px solid var(--pine);
+}
+
+/* --- Мобильные --- */
+@media (max-width: 600px) {
+  .field-grid {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .field-grid .field {
+    margin-bottom: 26px;
+  }
+
+  .kern-app {
+    top: 49px;
+  }
+
+  .app-storage-note {
+    display: none; /* на телефоне подпись не помещается — прячем */
+  }
+
+  /* Шапка на телефоне: компактнее логотип и кнопка, чтобы не наезжали */
+  .app-body .logo {
+    font-size: 11px;
+    letter-spacing: 0.14em;
+  }
+
+  .app-body .btn-small {
+    padding: 8px 12px;
+    font-size: 10px;
+    white-space: nowrap;
+  }
+
+  .day-head {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .app-actions .btn,
+  .app-actions .btn-ghost {
+    width: 100%;
+  }
+
+  .btn-danger {
+    margin: 8px auto 0;
+  }
+}
+
+/* --- Печать: убираем интерфейс, оставляем содержимое --- */
+@media print {
+  .site-header,
+  .kern,
+  .app-actions,
+  .rules {
+    display: none !important;
+  }
+
+  body {
+    background: #fff;
+  }
+
+  .stage-head {
+    background: none;
+    color: var(--ink);
+    border-bottom: 2px solid var(--ink);
+    border-radius: 0;
+    padding: 12px 0;
+  }
+
+  .app-stage {
+    break-inside: avoid-page;
+  }
+}
