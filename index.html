@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- SEO: заголовок и описание страницы (можно менять текст) -->
+  <title>Блокнот «Точка выбора» — рефлексивный блокнот о профессии и своём деле</title>
+  <meta name="description" content="Рефлексивный блокнот с вопросами, которые помогают разобраться в себе и осознанно выбрать профессию или своё дело. 5 этапов: от инвентаризации опыта до версий будущего.">
+
+  <!-- Шрифты: Playfair Display (заголовки) + Manrope (основной текст), оба поддерживают кириллицу -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&display=swap" rel="stylesheet">
+
+  <!-- Основные стили сайта -->
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- Иконка вкладки браузера (эмодзи, чтобы не рисовать отдельный файл) -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📓</text></svg>">
+</head>
+<body>
+
+  <!-- ============================================================
+       ШАПКА САЙТА
+       Логотип слева, кнопка покупки справа.
+       ============================================================ -->
+  <header class="site-header" id="site-header">
+    <div class="container header-inner">
+      <a href="#hero" class="logo">Точка&nbsp;выбора</a>
+      <!-- Кнопка в шапке ведёт к блоку с ценой -->
+      <a href="#price" class="btn btn-small">Купить блокнот</a>
+    </div>
+  </header>
+
+  <!-- ============================================================
+       1. HERO-БЛОК
+       Главный экран: заголовок, подзаголовок, кнопка покупки.
+       ============================================================ -->
+  <section class="hero" id="hero">
+    <div class="container hero-inner">
+      <p class="eyebrow">Рефлексивный блокнот · PDF для печати и заполнения</p>
+      <h1 class="hero-title">Разберитесь, чем вы хотите заниматься&nbsp;— на&nbsp;бумаге, а&nbsp;не&nbsp;в&nbsp;голове</h1>
+      <p class="hero-subtitle">
+        Блокнот «Точка выбора» — это 60+ продуманных вопросов о вашем опыте, ценностях
+        и вариантах будущего. Он помогает пройти путь от «я запутался» до конкретного
+        плана — без коуча и мотивационных лозунгов.
+      </p>
+      <div class="hero-actions">
+        <!--
+          ГЛАВНАЯ КНОПКА ПОКУПКИ.
+          Сейчас ведёт на placeholder-ссылку.
+          Когда подключите оплату — замените href на свою платёжную ссылку
+          (Stripe Payment Link, ЮKassa, Gumroad и т.д.).
+          Таких кнопок на странице три: здесь, в блоке цены и в футере.
+        -->
+        <a href="#price" class="btn btn-large">Купить блокнот</a>
+        <a href="#how" class="link-quiet">Как это работает&nbsp;↓</a>
+      </div>
+
+      <!-- Декоративная «карточка-страница блокнота» под заголовком -->
+      <div class="hero-card" aria-hidden="true">
+        <p class="hero-card-label">Вопрос дня · этап 3 — ценности</p>
+        <p class="hero-card-question">«Вспомните день, когда вы работали и не смотрели на часы. Что именно вы тогда делали?»</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       2. БЛОК «ПРОБЛЕМА»
+       Почему сложно принимать жизненные решения без структуры.
+       ============================================================ -->
+  <section class="section" id="problem">
+    <div class="container">
+      <p class="eyebrow">Проблема</p>
+      <h2 class="section-title">Почему «просто подумать» не&nbsp;работает</h2>
+      <p class="section-lead">
+        Решения о профессии и своём деле — самые крупные в жизни. Но чаще всего мы принимаем
+        их хаотично: по настроению, под давлением или «как получится».
+      </p>
+
+      <div class="grid grid-3">
+        <div class="card">
+          <div class="card-icon">🌀</div>
+          <h3 class="card-title">Мысли ходят по кругу</h3>
+          <p class="card-text">В голове одни и те же аргументы крутятся месяцами. Без записи невозможно увидеть, где вы себе противоречите, а где уже давно есть ответ.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">🗣️</div>
+          <h3 class="card-title">Чужие голоса громче своего</h3>
+          <p class="card-text">Родители, лента соцсетей, «успешный успех» знакомых — легко перепутать свои желания с чужими ожиданиями, если не задавать себе прямых вопросов.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">🧊</div>
+          <h3 class="card-title">Страх ошибки замораживает</h3>
+          <p class="card-text">Когда выбор кажется «одним на всю жизнь», проще не выбирать вообще. Годы уходят на откладывание, а не на проверку вариантов.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       3. БЛОК «РЕШЕНИЕ»
+       Что даёт блокнот + 5-этапная структура.
+       ============================================================ -->
+  <section class="section section-tinted" id="solution">
+    <div class="container">
+      <p class="eyebrow">Решение</p>
+      <h2 class="section-title">Один блокнот — пять этапов к&nbsp;ясности</h2>
+      <p class="section-lead">
+        «Точка выбора» превращает размытое «надо что-то менять» в последовательную работу.
+        Каждый этап — это блок вопросов, упражнений и место для выводов. Вы двигаетесь
+        в своём темпе: кому-то хватает двух недель, кто-то возвращается к блокноту месяцами.
+      </p>
+
+      <!-- Пять этапов в виде нумерованных шагов -->
+      <ol class="stages">
+        <li class="stage">
+          <span class="stage-num">1</span>
+          <div>
+            <h3 class="stage-title">Инвентаризация опыта</h3>
+            <p class="stage-text">Собираете на бумаге всё, что уже умеете, пробовали и любили делать — включая то, что не считали «настоящей работой».</p>
+          </div>
+        </li>
+        <li class="stage">
+          <span class="stage-num">2</span>
+          <div>
+            <h3 class="stage-title">Диагностика</h3>
+            <p class="stage-text">Честно разбираетесь, что именно не устраивает сейчас: дело, условия, люди или ожидания от самого себя.</p>
+          </div>
+        </li>
+        <li class="stage">
+          <span class="stage-num">3</span>
+          <div>
+            <h3 class="stage-title">Ценности</h3>
+            <p class="stage-text">Отделяете свои настоящие критерии хорошей жизни от навязанных — и формулируете, без чего вы не согласны работать.</p>
+          </div>
+        </li>
+        <li class="stage">
+          <span class="stage-num">4</span>
+          <div>
+            <h3 class="stage-title">Тестирование гипотез</h3>
+            <p class="stage-text">Превращаете «а может, мне в IT / в кофейню / во фриланс?» в маленькие проверяемые эксперименты на неделю-две.</p>
+          </div>
+        </li>
+        <li class="stage">
+          <span class="stage-num">5</span>
+          <div>
+            <h3 class="stage-title">Версии будущего</h3>
+            <p class="stage-text">Прописываете 2–3 реалистичных сценария своей жизни на несколько лет вперёд и выбираете первый шаг, который можно сделать уже на этой неделе.</p>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       4. БЛОК С ПРИМЕРАМИ ВОПРОСОВ
+       Три карточки-«страницы» из разных этапов.
+       ============================================================ -->
+  <section class="section" id="questions">
+    <div class="container">
+      <p class="eyebrow">Загляните внутрь</p>
+      <h2 class="section-title">Примеры вопросов из блокнота</h2>
+      <p class="section-lead">
+        Никаких «кем вы видите себя через 5 лет». Вопросы сформулированы так,
+        чтобы на них было интересно отвечать — и трудно отвечать на автомате.
+      </p>
+
+      <div class="grid grid-3">
+        <blockquote class="question-card">
+          <p class="question-stage">Этап 1 · Инвентаризация опыта</p>
+          <p class="question-text">«За какое дело вас благодарили чаще всего? Кто это был и что именно вы для них сделали?»</p>
+        </blockquote>
+        <blockquote class="question-card">
+          <p class="question-stage">Этап 4 · Тестирование гипотез</p>
+          <p class="question-text">«Как проверить эту идею за 7 дней и не дороже 1000 рублей? Что будет считаться результатом „да, моё“?»</p>
+        </blockquote>
+        <blockquote class="question-card">
+          <p class="question-stage">Этап 5 · Версии будущего</p>
+          <p class="question-text">«Опишите обычный вторник через три года в каждом из ваших сценариев. В каком из них вам хочется проснуться?»</p>
+        </blockquote>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       5. БЛОК «КАК ЭТО РАБОТАЕТ»
+       Три шага от покупки до результата.
+       ============================================================ -->
+  <section class="section section-tinted" id="how">
+    <div class="container">
+      <p class="eyebrow">Как это работает</p>
+      <h2 class="section-title">От покупки до ясности — три шага</h2>
+
+      <div class="grid grid-3 steps">
+        <div class="step">
+          <span class="step-num">Шаг 1</span>
+          <h3 class="card-title">Оплатите и получите PDF</h3>
+          <p class="card-text">Сразу после оплаты блокнот придёт на вашу почту. Его можно распечатать целиком, по одному этапу — или заполнять на планшете.</p>
+        </div>
+        <div class="step">
+          <span class="step-num">Шаг 2</span>
+          <h3 class="card-title">Отвечайте по 15–20 минут в день</h3>
+          <p class="card-text">Двигайтесь по этапам по порядку. К каждому блоку есть короткая инструкция, поэтому «не знаю, что писать» не случится.</p>
+        </div>
+        <div class="step">
+          <span class="step-num">Шаг 3</span>
+          <h3 class="card-title">Соберите выводы и первый шаг</h3>
+          <p class="card-text">В финале блокнот помогает свести все ответы в карту решений: что вы выбираете, что проверяете и что делаете на этой неделе.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       6. БЛОК С ЦЕНОЙ И КНОПКОЙ ОПЛАТЫ
+       ============================================================ -->
+  <section class="section" id="price">
+    <div class="container">
+      <div class="price-card">
+        <p class="eyebrow">Цена</p>
+        <h2 class="section-title">Блокнот «Точка выбора»</h2>
+
+        <!-- Что входит в покупку -->
+        <ul class="price-list">
+          <li>PDF-блокнот, 90+ страниц: 5 этапов, 60+ вопросов и упражнений</li>
+          <li>Версия для печати и версия для заполнения на планшете</li>
+          <li>Карта решений — итоговый разворот со всеми выводами</li>
+          <li>Бесплатные обновления блокнота навсегда</li>
+        </ul>
+
+        <!-- Цена. Поменяйте цифру на свою. -->
+        <p class="price-amount">1 490 ₽ <span class="price-old">2 400 ₽</span></p>
+        <p class="price-note">Разовый платёж · файл приходит на почту сразу после оплаты</p>
+
+        <!--
+          КНОПКА ОПЛАТЫ — ГЛАВНОЕ МЕСТО ДЛЯ ЗАМЕНЫ ССЫЛКИ.
+          Вместо "#" вставьте свою платёжную ссылку, например:
+          - Stripe Payment Link:  https://buy.stripe.com/xxxxxx
+          - ЮKassa:               https://yookassa.ru/my/i/xxxxxx
+          - Gumroad:              https://ваш-ник.gumroad.com/l/notebook
+          Атрибут target="_blank" откроет оплату в новой вкладке.
+        -->
+        <a href="#" class="btn btn-large btn-buy" target="_blank" rel="noopener">Купить и получить PDF</a>
+
+        <p class="price-guarantee">Если блокнот не подойдёт — напишите в течение 14 дней, вернём деньги без вопросов.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       7. ФУТЕР
+       Контакты и соцсети.
+       ============================================================ -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>
+        <p class="logo logo-footer">Точка&nbsp;выбора</p>
+        <p class="footer-text">Рефлексивный блокнот о выборе профессии и своего дела.</p>
+      </div>
+
+      <div>
+        <p class="footer-heading">Контакты</p>
+        <!-- Замените на свою почту -->
+        <p class="footer-text"><a href="mailto:hello@example.com">hello@example.com</a></p>
+      </div>
+
+      <div>
+        <p class="footer-heading">Соцсети</p>
+        <!-- Замените "#" на ссылки на свои профили -->
+        <p class="footer-text footer-socials">
+          <a href="#" rel="noopener">Telegram</a>
+          <a href="#" rel="noopener">Instagram</a>
+          <a href="#" rel="noopener">VK</a>
+        </p>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <p>© 2026 Точка выбора. Все права защищены.</p>
+    </div>
+  </footer>
+
+  <!-- Небольшой скрипт: плавный скролл и тень у шапки -->
+  <script src="script.js"></script>
+</body>
+</html>

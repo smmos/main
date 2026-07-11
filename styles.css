@@ -1,0 +1,597 @@
+/* ==========================================================================
+   СТИЛИ ЛЕНДИНГА «ТОЧКА ВЫБОРА»
+   --------------------------------------------------------------------------
+   Всё главное собрано в переменных ниже (:root).
+   Хотите поменять цвет или шрифт на всём сайте — меняйте только здесь.
+   ========================================================================== */
+
+:root {
+  /* --- Цветовая палитра (тёплая, «бумажная») --- */
+  --color-bg: #faf6f0;          /* фон страницы: тёплый кремовый */
+  --color-bg-tinted: #f2e9dd;   /* фон чередующихся секций: чуть темнее */
+  --color-surface: #ffffff;     /* фон карточек */
+  --color-ink: #2b2622;         /* основной текст: тёплый графит */
+  --color-muted: #7a716a;       /* второстепенный текст */
+  --color-accent: #c2542e;      /* акцент: терракота (кнопки, ссылки) */
+  --color-accent-dark: #a2431f; /* терракота темнее (hover у кнопок) */
+  --color-accent-soft: #f6e0d4; /* светлая терракота (подложки, номера) */
+  --color-line: #e5dbcd;        /* тонкие линии и рамки */
+
+  /* --- Шрифты --- */
+  --font-heading: "Playfair Display", Georgia, serif; /* заголовки */
+  --font-body: "Manrope", Arial, sans-serif;          /* основной текст */
+
+  /* --- Отступы и скругления --- */
+  --section-gap: clamp(64px, 10vw, 120px); /* вертикальный «воздух» между блоками */
+  --radius: 16px;                          /* скругление карточек */
+  --container: 1080px;                     /* максимальная ширина контента */
+}
+
+/* --- Базовый сброс --- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth; /* плавная прокрутка по якорным ссылкам */
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: 17px;
+  line-height: 1.65;
+  color: var(--color-ink);
+  background: var(--color-bg);
+  -webkit-font-smoothing: antialiased;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: var(--color-accent);
+}
+
+/* --- Контейнер: центрирует контент и задаёт боковые отступы --- */
+.container {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ==========================================================================
+   ТИПОГРАФИКА: общие элементы секций
+   ========================================================================== */
+
+/* Маленькая надпись над заголовком секции */
+.eyebrow {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin-bottom: 16px;
+}
+
+/* Заголовок секции */
+.section-title {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: clamp(28px, 4.5vw, 42px);
+  line-height: 1.2;
+  margin-bottom: 20px;
+  max-width: 22ch;
+}
+
+/* Подводка под заголовком */
+.section-lead {
+  font-size: clamp(17px, 2vw, 19px);
+  color: var(--color-muted);
+  max-width: 60ch;
+  margin-bottom: 48px;
+}
+
+/* Обычная секция */
+.section {
+  padding: var(--section-gap) 0;
+}
+
+/* Секция с чуть более тёмным фоном — для визуального ритма страницы */
+.section-tinted {
+  background: var(--color-bg-tinted);
+}
+
+/* ==========================================================================
+   КНОПКИ
+   ========================================================================== */
+
+.btn {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-weight: 700;
+  text-decoration: none;
+  text-align: center;
+  color: #fff;
+  background: var(--color-accent);
+  border-radius: 999px; /* полностью скруглённая «таблетка» */
+  padding: 14px 32px;
+  font-size: 17px;
+  transition: background 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+  box-shadow: 0 8px 24px rgba(194, 84, 46, 0.28);
+}
+
+.btn:hover {
+  background: var(--color-accent-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(194, 84, 46, 0.34);
+}
+
+.btn:active {
+  transform: translateY(0);
+}
+
+/* Крупная кнопка (hero и блок цены) */
+.btn-large {
+  padding: 18px 44px;
+  font-size: 18px;
+}
+
+/* Компактная кнопка (шапка) */
+.btn-small {
+  padding: 10px 22px;
+  font-size: 15px;
+  box-shadow: none;
+}
+
+/* Тихая текстовая ссылка рядом с кнопкой */
+.link-quiet {
+  color: var(--color-muted);
+  font-weight: 600;
+  text-decoration: none;
+  border-bottom: 1px solid var(--color-line);
+  padding-bottom: 2px;
+}
+
+.link-quiet:hover {
+  color: var(--color-ink);
+  border-color: var(--color-ink);
+}
+
+/* ==========================================================================
+   ШАПКА
+   ========================================================================== */
+
+.site-header {
+  position: sticky; /* шапка остаётся сверху при прокрутке */
+  top: 0;
+  z-index: 50;
+  background: rgba(250, 246, 240, 0.92);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Класс добавляется скриптом при прокрутке — появляется тонкая линия и тень */
+.site-header.is-scrolled {
+  border-bottom-color: var(--color-line);
+  box-shadow: 0 4px 20px rgba(43, 38, 34, 0.06);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 14px;
+  padding-bottom: 14px;
+}
+
+.logo {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 20px;
+  color: var(--color-ink);
+  text-decoration: none;
+}
+
+/* ==========================================================================
+   1. HERO-БЛОК
+   ========================================================================== */
+
+.hero {
+  padding: clamp(56px, 9vw, 110px) 0 var(--section-gap);
+  text-align: center;
+}
+
+.hero-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hero-title {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: clamp(34px, 6vw, 60px);
+  line-height: 1.12;
+  max-width: 18ch;
+  margin-bottom: 24px;
+}
+
+.hero-subtitle {
+  font-size: clamp(17px, 2.2vw, 20px);
+  color: var(--color-muted);
+  max-width: 56ch;
+  margin-bottom: 36px;
+}
+
+.hero-actions {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 56px;
+}
+
+/* Декоративная карточка-«страница блокнота» */
+.hero-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius);
+  padding: 28px 32px;
+  max-width: 460px;
+  box-shadow: 0 20px 50px rgba(43, 38, 34, 0.08);
+  transform: rotate(-1.2deg); /* лёгкий наклон — как настоящий листок */
+  text-align: left;
+}
+
+.hero-card-label {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin-bottom: 10px;
+}
+
+.hero-card-question {
+  font-family: var(--font-heading);
+  font-style: italic;
+  font-size: 19px;
+  line-height: 1.45;
+}
+
+/* ==========================================================================
+   СЕТКИ И КАРТОЧКИ (блоки «Проблема», «Вопросы», «Как это работает»)
+   ========================================================================== */
+
+.grid {
+  display: grid;
+  gap: 24px;
+}
+
+/* Три колонки на больших экранах (на мобильных сложатся в одну — см. медиазапрос внизу) */
+.grid-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius);
+  padding: 32px 28px;
+}
+
+.card-icon {
+  font-size: 30px;
+  margin-bottom: 16px;
+}
+
+.card-title {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 21px;
+  margin-bottom: 10px;
+}
+
+.card-text {
+  color: var(--color-muted);
+  font-size: 16px;
+}
+
+/* ==========================================================================
+   3. БЛОК «РЕШЕНИЕ»: пять этапов
+   ========================================================================== */
+
+.stages {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 720px;
+}
+
+.stage {
+  display: flex;
+  gap: 22px;
+  align-items: flex-start;
+  background: var(--color-surface);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius);
+  padding: 24px 28px;
+}
+
+/* Круглый номер этапа */
+.stage-num {
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--color-accent-soft);
+  color: var(--color-accent);
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 20px;
+}
+
+.stage-title {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 20px;
+  margin-bottom: 6px;
+}
+
+.stage-text {
+  color: var(--color-muted);
+  font-size: 16px;
+}
+
+/* ==========================================================================
+   4. КАРТОЧКИ С ПРИМЕРАМИ ВОПРОСОВ
+   ========================================================================== */
+
+.question-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-line);
+  border-left: 4px solid var(--color-accent); /* цветной корешок слева */
+  border-radius: var(--radius);
+  padding: 28px;
+}
+
+.question-stage {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin-bottom: 14px;
+}
+
+.question-text {
+  font-family: var(--font-heading);
+  font-style: italic;
+  font-size: 19px;
+  line-height: 1.5;
+}
+
+/* ==========================================================================
+   5. БЛОК «КАК ЭТО РАБОТАЕТ»
+   ========================================================================== */
+
+.step {
+  background: var(--color-surface);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius);
+  padding: 32px 28px;
+}
+
+.step-num {
+  display: inline-block;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  background: var(--color-accent-soft);
+  border-radius: 999px;
+  padding: 6px 14px;
+  margin-bottom: 18px;
+}
+
+/* ==========================================================================
+   6. БЛОК ЦЕНЫ
+   ========================================================================== */
+
+.price-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-line);
+  border-radius: 24px;
+  padding: clamp(36px, 6vw, 64px);
+  max-width: 640px;
+  margin: 0 auto;
+  text-align: center;
+  box-shadow: 0 24px 60px rgba(43, 38, 34, 0.09);
+}
+
+.price-card .section-title {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Список того, что входит в покупку */
+.price-list {
+  list-style: none;
+  text-align: left;
+  max-width: 440px;
+  margin: 28px auto 36px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.price-list li {
+  padding-left: 32px;
+  position: relative;
+  color: var(--color-muted);
+}
+
+/* Галочка перед каждым пунктом */
+.price-list li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: var(--color-accent);
+  font-weight: 700;
+}
+
+.price-amount {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: clamp(38px, 6vw, 52px);
+  margin-bottom: 8px;
+}
+
+/* Старая (зачёркнутая) цена */
+.price-old {
+  font-size: 0.5em;
+  color: var(--color-muted);
+  text-decoration: line-through;
+  font-weight: 500;
+  margin-left: 10px;
+}
+
+.price-note {
+  color: var(--color-muted);
+  font-size: 15px;
+  margin-bottom: 32px;
+}
+
+.btn-buy {
+  width: 100%;
+  max-width: 380px;
+}
+
+.price-guarantee {
+  margin-top: 24px;
+  font-size: 14px;
+  color: var(--color-muted);
+}
+
+/* ==========================================================================
+   7. ФУТЕР
+   ========================================================================== */
+
+.site-footer {
+  background: var(--color-ink);
+  color: #cfc7bf;
+  padding: 56px 0 0;
+}
+
+.footer-inner {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 40px;
+  padding-bottom: 40px;
+}
+
+.logo-footer {
+  color: #fff;
+  margin-bottom: 12px;
+}
+
+.footer-heading {
+  color: #fff;
+  font-weight: 700;
+  font-size: 15px;
+  margin-bottom: 12px;
+}
+
+.footer-text {
+  font-size: 15px;
+}
+
+.footer-text a {
+  color: #cfc7bf;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(207, 199, 191, 0.4);
+}
+
+.footer-text a:hover {
+  color: #fff;
+  border-color: #fff;
+}
+
+/* Ссылки на соцсети — в столбик с небольшим отступом */
+.footer-socials {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(207, 199, 191, 0.2);
+  padding-top: 20px;
+  padding-bottom: 24px;
+  font-size: 13px;
+  color: #948b83;
+}
+
+/* ==========================================================================
+   АДАПТИВНОСТЬ
+   ========================================================================== */
+
+/* Планшеты: 3 колонки превращаются в 2 */
+@media (max-width: 900px) {
+  .grid-3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .footer-inner {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* Мобильные: всё в одну колонку, чуть меньше отступы */
+@media (max-width: 600px) {
+  body {
+    font-size: 16px;
+  }
+
+  .grid-3 {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  .btn-large {
+    width: 100%; /* кнопка на всю ширину — удобнее нажимать пальцем */
+  }
+
+  .hero-card {
+    transform: none; /* убираем наклон карточки на маленьких экранах */
+    padding: 22px;
+  }
+
+  .stage {
+    padding: 20px;
+    gap: 16px;
+  }
+
+  .footer-inner {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+}
