@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- SEO: page title and description (feel free to edit) -->
+  <title>DECISION · Module 01 — a paper decision-protocol notebook, 6 stages</title>
+  <meta name="description" content="DECISION is a paper reflective notebook for one important decision about your career and work. Six stages, four cover colours. Method developed by a sociologist.">
+
+  <!-- Language alternates: tells search engines about the Russian version -->
+  <link rel="alternate" hreflang="ru" href="index.html">
+  <link rel="alternate" hreflang="en" href="en.html">
+
+  <!-- Notebook typefaces: IBM Plex Sans + IBM Plex Mono.
+       Loaded LOCALLY from the fonts/ folder — no external services. -->
+  <link rel="stylesheet" href="fonts.css">
+
+  <!-- Main stylesheet (shared with the Russian page) -->
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- Browser tab icon: pine-coloured square -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%232D4A3E'/><text x='50' y='68' font-size='52' text-anchor='middle' fill='%23F5F1E8' font-family='monospace'>D</text></svg>">
+</head>
+<body>
+
+  <!-- ============================================================
+       HEADER: brand on the left, language switch + buy button right
+       ============================================================ -->
+  <header class="site-header" id="site-header">
+    <div class="container header-inner">
+      <a href="#hero" class="logo">DECISION&nbsp;·&nbsp;01</a>
+      <nav class="header-right">
+        <!-- Language switch: current language is highlighted -->
+        <p class="lang"><a href="index.html">RU</a><span>·</span><a href="en.html" class="is-current">EN</a></p>
+        <a href="#price" class="btn btn-small">Buy</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ============================================================
+       1. HERO — the notebook cover translated to the web.
+       The kern scale below is navigation across the six stages.
+       ============================================================ -->
+  <section class="hero" id="hero">
+    <div class="container hero-inner">
+      <p class="hero-topline">A protocol for one decision&nbsp;·&nbsp;6&nbsp;stages</p>
+
+      <h1 class="hero-title">Decision</h1>
+      <p class="hero-module">Module 01</p>
+
+      <p class="hero-subtitle">
+        A paper notebook for one important decision about your career and work.
+        Not a journal — a research protocol.
+      </p>
+
+      <div class="hero-actions">
+        <a href="#price" class="btn btn-paper">Buy the notebook</a>
+        <a href="#covers" class="hero-more">Choose a cover&nbsp;↓</a>
+      </div>
+    </div>
+
+    <!-- Kern scale: six tint layers, each links to its stage -->
+    <nav class="kern" aria-label="Six stages">
+      <a href="#stage-1" class="kern-seg kern-1"><span class="kern-num">1</span><span class="kern-label">Question</span></a>
+      <a href="#stage-2" class="kern-seg kern-2"><span class="kern-num">2</span><span class="kern-label">Options</span></a>
+      <a href="#stage-3" class="kern-seg kern-3"><span class="kern-num">3</span><span class="kern-label">Versions</span></a>
+      <a href="#stage-4" class="kern-seg kern-4"><span class="kern-num">4</span><span class="kern-label">Testing</span></a>
+      <a href="#stage-5" class="kern-seg kern-5"><span class="kern-num">5</span><span class="kern-label">Field</span></a>
+      <a href="#stage-6" class="kern-seg kern-6"><span class="kern-num">6</span><span class="kern-label">Decision</span></a>
+    </nav>
+  </section>
+
+  <!-- ============================================================
+       2. COVERS — the four inks of the series.
+       Covers are currently drawn in code from the print layout.
+       WHEN PHOTOS ARRIVE: replace each <span class="cover"> with
+       <img src="photo-pine-en.jpg" alt="DECISION notebook, pine">
+       (put the photo files next to index.html).
+       Clicking a cover selects the colour and scrolls to checkout.
+       ============================================================ -->
+  <section class="section" id="covers">
+    <div class="container">
+      <p class="eyebrow">Four inks</p>
+      <h2 class="section-title">One notebook&nbsp;— choose your cover</h2>
+
+      <div class="covers-grid">
+        <!-- Cover: pine -->
+        <button class="cover-item" data-color="Pine" type="button">
+          <span class="cover" style="--c:#2d4a3e">
+            <span class="cover-top">A protocol for one decision · 6 stages</span>
+            <span class="cover-name">Decision</span>
+            <span class="cover-studio">Thinking Tools Studio</span>
+            <span class="cover-kern"><i></i><i></i><i></i><i></i><i></i><i></i></span>
+          </span>
+          <span class="cover-caption">Pine</span>
+        </button>
+
+        <!-- Cover: terracotta -->
+        <button class="cover-item" data-color="Terracotta" type="button">
+          <span class="cover" style="--c:#b05c2f">
+            <span class="cover-top">A protocol for one decision · 6 stages</span>
+            <span class="cover-name">Decision</span>
+            <span class="cover-studio">Thinking Tools Studio</span>
+            <span class="cover-kern"><i></i><i></i><i></i><i></i><i></i><i></i></span>
+          </span>
+          <span class="cover-caption">Terracotta</span>
+        </button>
+
+        <!-- Cover: wine -->
+        <button class="cover-item" data-color="Wine" type="button">
+          <span class="cover" style="--c:#8e3b3b">
+            <span class="cover-top">A protocol for one decision · 6 stages</span>
+            <span class="cover-name">Decision</span>
+            <span class="cover-studio">Thinking Tools Studio</span>
+            <span class="cover-kern"><i></i><i></i><i></i><i></i><i></i><i></i></span>
+          </span>
+          <span class="cover-caption">Wine</span>
+        </button>
+
+        <!-- Cover: graphite -->
+        <button class="cover-item" data-color="Graphite" type="button">
+          <span class="cover" style="--c:#3f4550">
+            <span class="cover-top">A protocol for one decision · 6 stages</span>
+            <span class="cover-name">Decision</span>
+            <span class="cover-studio">Thinking Tools Studio</span>
+            <span class="cover-kern"><i></i><i></i><i></i><i></i><i></i><i></i></span>
+          </span>
+          <span class="cover-caption">Graphite</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       3. METHOD — the six stages, briefly
+       ============================================================ -->
+  <section class="section section-tinted" id="method">
+    <div class="container">
+      <p class="eyebrow">Method</p>
+      <h2 class="section-title">One important decision&nbsp;— as a small research project, not a&nbsp;3&nbsp;a.m. anxiety spiral</h2>
+
+      <ol class="stages">
+        <li class="stage" id="stage-1">
+          <span class="stage-num">1</span>
+          <div class="stage-body">
+            <h3 class="stage-title">Framing the question</h3>
+            <p class="stage-text">“Something is off” becomes one question — with boundaries and a deadline.</p>
+          </div>
+        </li>
+        <li class="stage" id="stage-2">
+          <span class="stage-num">2</span>
+          <div class="stage-body">
+            <h3 class="stage-title">Map of options</h3>
+            <p class="stage-text">Every path on one map — including the unrealistic and the embarrassing ones.</p>
+          </div>
+        </li>
+        <li class="stage" id="stage-3">
+          <span class="stage-num">3</span>
+          <div class="stage-body">
+            <h3 class="stage-title">Versions of the future</h3>
+            <p class="stage-text">Each serious option written as a concrete Tuesday two years from now.</p>
+          </div>
+        </li>
+        <li class="stage" id="stage-4">
+          <span class="stage-num">4</span>
+          <div class="stage-body">
+            <h3 class="stage-title">Testing</h3>
+            <p class="stage-text">Versions become hypotheses you can test within a week or two.</p>
+          </div>
+        </li>
+        <li class="stage" id="stage-5">
+          <span class="stage-num">5</span>
+          <div class="stage-body">
+            <h3 class="stage-title">Field</h3>
+            <p class="stage-text">Seven days of short notes: data about yourself, not opinions.</p>
+          </div>
+        </li>
+        <li class="stage" id="stage-6">
+          <span class="stage-num">6</span>
+          <div class="stage-body">
+            <h3 class="stage-title">Decision</h3>
+            <p class="stage-text">A document with a signature and a review date — instead of a “happy ending”.</p>
+          </div>
+        </li>
+      </ol>
+
+      <p class="method-note">Write in pencil while you think; in&nbsp;ink&nbsp;— what has become data.</p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       4. THREE SPREADS FROM THE NOTEBOOK
+       ============================================================ -->
+  <section class="section" id="inside">
+    <div class="container">
+      <p class="eyebrow">Look inside</p>
+      <h2 class="section-title">Three spreads from the&nbsp;notebook</h2>
+
+      <div class="grid grid-3">
+        <article class="page-card">
+          <p class="page-head"><span>Decision · protocol</span><span>Stage 1 / 6</span></p>
+          <p class="page-num">1.2 · What happens if you don’t decide for a&nbsp;year</p>
+          <p class="page-hint">No dramatising.</p>
+          <div class="page-lines" aria-hidden="true"><i></i><i></i><i></i></div>
+          <p class="page-foot">Filled in with pencil</p>
+        </article>
+
+        <article class="page-card">
+          <p class="page-head"><span>Decision · protocol</span><span>Stage 2 / 6</span></p>
+          <p class="page-num">2.4 · My choice or someone else’s expectation</p>
+          <p class="page-hint">What remains once you remove other people’s expectations?</p>
+          <div class="page-lines" aria-hidden="true"><i></i><i></i><i></i></div>
+          <p class="page-foot">Filled in with pencil</p>
+        </article>
+
+        <article class="page-card">
+          <p class="page-head"><span>Decision · protocol</span><span>Stage 3 / 6</span></p>
+          <p class="page-num">Version №&nbsp;—</p>
+          <ul class="page-fields">
+            <li>A Tuesday two years from now</li>
+            <li>What I do with my hands and head</li>
+            <li>Who is around</li>
+            <li class="page-field-accent">Where it hurts</li>
+          </ul>
+          <p class="page-foot">Filled in with pencil</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       5. HOW IT WORKS — three steps from order to decision
+       ============================================================ -->
+  <section class="section section-tinted" id="how">
+    <div class="container">
+      <p class="eyebrow">How it works</p>
+      <h2 class="section-title">From order to decision</h2>
+
+      <div class="grid grid-3">
+        <div class="card">
+          <p class="card-index">Step 1</p>
+          <h3 class="card-title">Order</h3>
+          <p class="card-text">Choose a cover colour and pay — we ship within 1–2 days.</p>
+        </div>
+        <div class="card">
+          <p class="card-index">Step 2</p>
+          <h3 class="card-title">Receive</h3>
+          <p class="card-text">Worldwide delivery. Inside — a stage pencil and instructions.</p>
+        </div>
+        <div class="card">
+          <p class="card-index">Step 3</p>
+          <h3 class="card-title">Work through six stages</h3>
+          <p class="card-text">Sessions of 20–30 minutes. It ends with a decision — signed, with a review date.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       6. PRICE & CHECKOUT — the “document frame” from the finale
+       ============================================================ -->
+  <section class="section" id="price">
+    <div class="container">
+      <div class="price-card">
+        <p class="eyebrow">Decision · Module 01</p>
+        <h2 class="section-title price-title">Paper notebook, A5</h2>
+
+        <ul class="price-list">
+          <li>6 stages: instructions and working spreads</li>
+          <li>Thick “Bone” paper — made for pencil and ink</li>
+          <li>Cover in one of four inks</li>
+          <li>Worldwide shipping</li>
+        </ul>
+
+        <!-- Cover colour choice. The selected colour appears in the line below.
+             Clicking the large covers above also selects a colour. -->
+        <div class="swatches" role="group" aria-label="Cover colour">
+          <button class="swatch is-selected" data-color="Pine" type="button" style="--c:#2d4a3e" aria-label="Pine"></button>
+          <button class="swatch" data-color="Terracotta" type="button" style="--c:#b05c2f" aria-label="Terracotta"></button>
+          <button class="swatch" data-color="Wine" type="button" style="--c:#8e3b3b" aria-label="Wine"></button>
+          <button class="swatch" data-color="Graphite" type="button" style="--c:#3f4550" aria-label="Graphite"></button>
+        </div>
+        <p class="swatch-caption">Cover: <span id="selected-color">Pine</span></p>
+
+        <!-- Price. Change the number to yours. -->
+        <p class="price-amount">$29</p>
+        <p class="price-note">Shipping is calculated at checkout</p>
+
+        <!--
+          PAYMENT BUTTON — THE MAIN PLACE TO REPLACE THE LINK.
+          Put your payment link instead of "#", for example:
+          - Stripe Payment Link:  https://buy.stripe.com/xxxxxx
+        -->
+        <a href="#" class="btn btn-buy" target="_blank" rel="noopener">Buy the notebook</a>
+
+        <p class="price-guarantee">The method was developed by a sociologist (PhD). Not for you?&nbsp;— full refund within 14&nbsp;days.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       7. FOOTER — contacts and social links
+       ============================================================ -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>
+        <p class="footer-brand">Decision</p>
+        <p class="footer-text">Thinking Tools Studio.<br>Protocols for one important decision.</p>
+      </div>
+
+      <div>
+        <p class="footer-heading">Contact</p>
+        <!-- Replace with your email -->
+        <p class="footer-text"><a href="mailto:hello@example.com">hello@example.com</a></p>
+      </div>
+
+      <div>
+        <p class="footer-heading">Social</p>
+        <!-- Replace "#" with links to your profiles -->
+        <p class="footer-text footer-socials">
+          <a href="#" rel="noopener">Telegram</a>
+          <a href="#" rel="noopener">Instagram</a>
+          <a href="#" rel="noopener">X</a>
+        </p>
+      </div>
+    </div>
+
+    <div class="container footer-bottom">
+      <p>© 2026 Thinking Tools Studio. All rights reserved.</p>
+    </div>
+
+    <!-- Kern scale along the bottom edge — as on the cover -->
+    <div class="kern kern-footer" aria-hidden="true">
+      <span class="kern-seg kern-1"></span><span class="kern-seg kern-2"></span><span class="kern-seg kern-3"></span><span class="kern-seg kern-4"></span><span class="kern-seg kern-5"></span><span class="kern-seg kern-6"></span>
+    </div>
+  </footer>
+
+  <!-- Script: header line, cover colour choice, payment placeholder -->
+  <script src="script.js"></script>
+</body>
+</html>

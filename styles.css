@@ -193,6 +193,42 @@ a {
   padding-bottom: 14px;
 }
 
+/* Правая часть шапки: переключатель языка + кнопка */
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+/* Переключатель RU · EN — моно, как служебные надписи */
+.lang {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--graphite);
+}
+
+.lang a {
+  color: var(--graphite);
+  text-decoration: none;
+  opacity: 0.6;
+}
+
+.lang a:hover {
+  opacity: 1;
+}
+
+/* Текущий язык — тёмный и подчёркнут */
+.lang a.is-current {
+  color: var(--ink);
+  opacity: 1;
+  border-bottom: 1px solid var(--ink);
+}
+
 /* Логотип — моно капсом с разрядкой, как строка студии на обложке */
 .logo {
   font-family: var(--font-mono);

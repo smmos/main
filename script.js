@@ -50,11 +50,15 @@ document.querySelectorAll('a.btn-buy').forEach((button) => {
     const href = button.getAttribute('href');
     if (href === '#' || href === '') {
       event.preventDefault();
+      // Текст заглушки зависит от языка страницы (<html lang="ru"> или "en")
+      const isEnglish = document.documentElement.lang === 'en';
       console.warn(
         'Кнопка оплаты пока ведёт на заглушку. ' +
-        'Замените href у кнопки .btn-buy в index.html на вашу платёжную ссылку.'
+        'Замените href у кнопки .btn-buy на вашу платёжную ссылку.'
       );
-      alert('Здесь будет оплата 🙂 Ссылка подключается в index.html (кнопка .btn-buy).');
+      alert(isEnglish
+        ? 'Payment coming soon 🙂 The link is set in en.html (the .btn-buy button).'
+        : 'Здесь будет оплата 🙂 Ссылка подключается в index.html (кнопка .btn-buy).');
     }
   });
 });
