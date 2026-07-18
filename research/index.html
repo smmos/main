@@ -1,0 +1,1176 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Head of Market Research · PhD по социологии — исследования и аналитика для стратегических решений</title>
+  <meta name="description" content="Независимый research leader: market research, UX research, стратегическая аналитика, CustDev и JTBD. PhD по социологии, 9+ лет опыта. Помогаю фаундерам и командам принимать более точные решения.">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Исследования, которые проясняют решения">
+  <meta property="og:description" content="Head of Market Research · PhD по социологии · 9+ лет. Market research, UX research и стратегическая аналитика для фаундеров, продуктовых команд и компаний.">
+  <meta property="og:locale" content="ru_RU">
+  <meta property="og:site_name" content="SM · Research & Strategy">
+
+  <meta name="theme-color" content="#faf7f1" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#161511" media="(prefers-color-scheme: dark)">
+
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='14' fill='%231a1916'/><circle cx='35' cy='38' r='7' fill='%23c96b35'/><circle cx='68' cy='30' r='4' fill='%23f5f1e8'/><circle cx='62' cy='68' r='4' fill='%23f5f1e8'/><path d='M35 38 68 30M35 38 62 68M68 30 62 68' stroke='%23f5f1e8' stroke-width='2' fill='none'/></svg>">
+
+  <!-- Structured data: Person + ProfessionalService -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Person",
+        "@id": "#person",
+        "name": "S. Moskaleva",
+        "jobTitle": "Head of Market Research",
+        "description": "Независимый research leader и аналитик. PhD по социологии, 9+ лет опыта в качественных и количественных исследованиях, market research, UX research и стратегической аналитике.",
+        "email": "mailto:smmoskaleva@gmail.com",
+        "knowsAbout": ["Market Research", "UX Research", "Product Discovery", "CustDev", "Jobs to Be Done", "Стратегическая аналитика", "Качественные исследования", "Количественные исследования", "Социология"],
+        "alumniOf": {
+          "@type": "EducationalOrganization",
+          "name": "PhD по социологии"
+        }
+      },
+      {
+        "@type": "ProfessionalService",
+        "name": "SM · Research & Strategy",
+        "description": "Market research, UX research, стратегическая аналитика и research leadership для фаундеров, продуктовых команд и компаний.",
+        "founder": { "@id": "#person" },
+        "areaServed": "Worldwide",
+        "availableLanguage": ["ru", "en"]
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    /* ============================================================
+       ТЕМЫ И ТОКЕНЫ
+       Один акцентный цвет — жжёная сиена. Всё остальное — бумага,
+       графит и воздух.
+       ============================================================ */
+    :root {
+      --bg: #faf7f1;
+      --bg-raised: #f3efe6;
+      --ink: #1c1a16;
+      --ink-soft: #4c4840;
+      --ink-faint: #8a8477;
+      --line: #e0dacd;
+      --line-strong: #c9c2b2;
+      --accent: #b04f22;
+      --accent-soft: rgba(176, 79, 34, 0.09);
+      --motif: rgba(28, 26, 22, 0.16);
+
+      --serif: "Georgia Pro", Georgia, "Iowan Old Style", "Times New Roman", serif;
+      --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, "Helvetica Neue", Arial, sans-serif;
+      --mono: "SF Mono", "Cascadia Code", "JetBrains Mono", Consolas, "Liberation Mono", monospace;
+
+      --w: 1120px;
+      --pad: clamp(20px, 5vw, 48px);
+    }
+
+    :root[data-theme="dark"] {
+      --bg: #161511;
+      --bg-raised: #1e1c17;
+      --ink: #ece7dc;
+      --ink-soft: #b9b3a5;
+      --ink-faint: #7d776b;
+      --line: #2c2a23;
+      --line-strong: #423f35;
+      --accent: #d0703a;
+      --accent-soft: rgba(208, 112, 58, 0.13);
+      --motif: rgba(236, 231, 220, 0.15);
+    }
+
+    /* ============================================================
+       БАЗА
+       ============================================================ */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--sans);
+      font-size: 17px;
+      line-height: 1.65;
+      color: var(--ink);
+      background: var(--bg);
+      -webkit-font-smoothing: antialiased;
+      transition: background 0.35s ease, color 0.35s ease;
+    }
+
+    ::selection { background: var(--accent); color: #fff; }
+
+    .container {
+      max-width: var(--w);
+      margin: 0 auto;
+      padding-left: var(--pad);
+      padding-right: var(--pad);
+    }
+
+    a { color: inherit; }
+
+    :focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 3px;
+      border-radius: 2px;
+    }
+
+    .skip-link {
+      position: absolute;
+      left: -9999px;
+      top: 0;
+      background: var(--accent);
+      color: #fff;
+      padding: 10px 18px;
+      z-index: 100;
+      text-decoration: none;
+    }
+    .skip-link:focus { left: 0; }
+
+    /* Типографика */
+    h1, h2, h3 {
+      font-family: var(--serif);
+      font-weight: 400;
+      line-height: 1.15;
+      letter-spacing: -0.01em;
+      text-wrap: balance;
+    }
+
+    .overline {
+      font-family: var(--mono);
+      font-size: 12px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    .section {
+      padding: clamp(72px, 11vw, 128px) 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .section-head {
+      display: grid;
+      gap: 18px;
+      max-width: 640px;
+      margin-bottom: clamp(40px, 6vw, 72px);
+    }
+
+    .section-head h2 {
+      font-size: clamp(30px, 4.2vw, 44px);
+    }
+
+    .section-head .lede {
+      color: var(--ink-soft);
+      font-size: 18px;
+    }
+
+    /* Появление блоков при скролле — деликатно, с уважением к reduced motion.
+       Скрытое состояние применяется только когда JS точно работает (html.js),
+       иначе контент остаётся видимым. */
+    html.js .reveal {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    html.js .reveal.is-visible { opacity: 1; transform: none; }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      html.js .reveal { opacity: 1; transform: none; transition: none; }
+      * { animation: none !important; }
+    }
+
+    /* ============================================================
+       ШАПКА
+       ============================================================ */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: color-mix(in srgb, var(--bg) 88%, transparent);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.3s ease, background 0.35s ease;
+    }
+    .site-header.is-scrolled { border-bottom-color: var(--line); }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      height: 68px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+      text-decoration: none;
+    }
+    .brand-mark {
+      font-family: var(--serif);
+      font-size: 22px;
+      letter-spacing: 0.02em;
+    }
+    .brand-mark em { font-style: normal; color: var(--accent); }
+    .brand-note {
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+    }
+
+    .site-nav { display: flex; align-items: center; gap: 26px; }
+    .site-nav a {
+      font-size: 14.5px;
+      text-decoration: none;
+      color: var(--ink-soft);
+      transition: color 0.2s ease;
+    }
+    .site-nav a:hover { color: var(--ink); }
+
+    .header-actions { display: flex; align-items: center; gap: 14px; }
+
+    .theme-toggle {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 38px;
+      height: 38px;
+      border: 1px solid var(--line-strong);
+      border-radius: 50%;
+      background: transparent;
+      color: var(--ink-soft);
+      cursor: pointer;
+      transition: border-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+    }
+    .theme-toggle:hover { border-color: var(--accent); color: var(--accent); }
+    .theme-toggle svg { width: 17px; height: 17px; }
+    :root[data-theme="dark"] .icon-moon { display: none; }
+    :root:not([data-theme="dark"]) .icon-sun { display: none; }
+
+    .btn {
+      display: inline-block;
+      font-size: 15px;
+      font-weight: 500;
+      text-decoration: none;
+      padding: 13px 26px;
+      border-radius: 999px;
+      border: 1px solid var(--ink);
+      color: var(--ink);
+      background: transparent;
+      transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
+    }
+    .btn:hover { transform: translateY(-1px); }
+
+    .btn-primary {
+      background: var(--ink);
+      color: var(--bg);
+    }
+    .btn-primary:hover {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #fff;
+    }
+
+    .btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
+
+    .btn-header { padding: 9px 20px; font-size: 14px; }
+
+    @media (max-width: 860px) {
+      .site-nav { display: none; }
+      .brand-note { display: none; }
+    }
+
+    /* ============================================================
+       HERO
+       ============================================================ */
+    .hero {
+      position: relative;
+      overflow: hidden;
+      padding: clamp(84px, 12vw, 150px) 0 clamp(72px, 10vw, 120px);
+    }
+
+    .hero-motif {
+      position: absolute;
+      right: -60px;
+      top: 40px;
+      width: min(46vw, 540px);
+      height: auto;
+      color: var(--motif);
+      pointer-events: none;
+      user-select: none;
+    }
+    .hero-motif .node-accent { fill: var(--accent); }
+
+    .hero-inner { position: relative; max-width: 760px; }
+
+    .hero h1 {
+      font-size: clamp(38px, 6.4vw, 74px);
+      margin: 22px 0 26px;
+    }
+    .hero h1 em {
+      font-style: italic;
+      color: var(--accent);
+    }
+
+    .hero-sub {
+      font-size: clamp(17px, 2.2vw, 20px);
+      color: var(--ink-soft);
+      max-width: 580px;
+      margin-bottom: 38px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-bottom: 46px;
+    }
+
+    .hero-cred {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 0;
+      align-items: center;
+      font-family: var(--mono);
+      font-size: 12.5px;
+      letter-spacing: 0.04em;
+      color: var(--ink-faint);
+    }
+    .hero-cred span { white-space: nowrap; }
+    .hero-cred .dot {
+      display: inline-block;
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: var(--accent);
+      margin: 0 12px;
+      vertical-align: middle;
+    }
+
+    @media (max-width: 720px) {
+      .hero-motif { opacity: 0.5; top: auto; bottom: -40px; right: -100px; width: 70vw; }
+    }
+
+    /* ============================================================
+       ОБО МНЕ
+       ============================================================ */
+    .about-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr);
+      gap: clamp(40px, 6vw, 88px);
+      align-items: start;
+    }
+
+    .about-text p + p { margin-top: 1.2em; }
+    .about-text p { color: var(--ink-soft); }
+    .about-text p strong { color: var(--ink); font-weight: 600; }
+
+    .about-text .first-line {
+      font-family: var(--serif);
+      font-size: clamp(20px, 2.6vw, 25px);
+      line-height: 1.45;
+      color: var(--ink);
+    }
+
+    .about-aside {
+      border-left: 1px solid var(--line-strong);
+      padding-left: clamp(20px, 3vw, 36px);
+      display: grid;
+      gap: 28px;
+      position: sticky;
+      top: 100px;
+    }
+    .about-aside dt {
+      font-family: var(--mono);
+      font-size: 11.5px;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 6px;
+    }
+    .about-aside dd { font-size: 15px; color: var(--ink-soft); }
+
+    @media (max-width: 860px) {
+      .about-grid { grid-template-columns: 1fr; }
+      .about-aside { position: static; }
+    }
+
+    /* ============================================================
+       УСЛУГИ — редакционный нумерованный список, не карточки с иконками
+       ============================================================ */
+    .services-list {
+      list-style: none;
+      border-top: 1px solid var(--line);
+    }
+
+    .service {
+      display: grid;
+      grid-template-columns: 72px minmax(0, 1.05fr) minmax(0, 1fr);
+      gap: clamp(16px, 3vw, 48px);
+      padding: clamp(28px, 4vw, 44px) 0;
+      border-bottom: 1px solid var(--line);
+      transition: background 0.25s ease;
+    }
+    .service:hover { background: var(--accent-soft); }
+
+    .service-num {
+      font-family: var(--mono);
+      font-size: 13px;
+      color: var(--ink-faint);
+      padding-top: 7px;
+      transition: color 0.25s ease;
+    }
+    .service:hover .service-num { color: var(--accent); }
+
+    .service h3 {
+      font-size: clamp(21px, 2.6vw, 26px);
+      margin-bottom: 10px;
+    }
+    .service-desc { font-size: 15.5px; color: var(--ink-soft); }
+
+    .service-value { font-size: 15px; color: var(--ink-soft); display: grid; gap: 14px; align-content: start; padding-top: 7px; }
+    .service-value b {
+      display: block;
+      font-family: var(--mono);
+      font-weight: 400;
+      font-size: 11px;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 4px;
+    }
+
+    @media (max-width: 860px) {
+      .service { grid-template-columns: 1fr; gap: 14px; }
+      .service-num { padding-top: 0; }
+      .service-value { padding-top: 0; }
+    }
+
+    /* ============================================================
+       ПРОЦЕСС — вертикальная ось с узлами
+       ============================================================ */
+    .process-list {
+      list-style: none;
+      position: relative;
+      max-width: 720px;
+      counter-reset: step;
+    }
+    .process-list::before {
+      content: "";
+      position: absolute;
+      left: 7px;
+      top: 14px;
+      bottom: 14px;
+      width: 1px;
+      background: var(--line-strong);
+    }
+
+    .process-step {
+      position: relative;
+      padding: 0 0 44px 48px;
+      counter-increment: step;
+    }
+    .process-step:last-child { padding-bottom: 0; }
+
+    .process-step::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 7px;
+      width: 15px;
+      height: 15px;
+      border-radius: 50%;
+      background: var(--bg);
+      border: 1.5px solid var(--line-strong);
+      transition: border-color 0.3s ease, background 0.3s ease;
+    }
+    .process-step.is-visible::before {
+      border-color: var(--accent);
+    }
+    .process-step:first-child::before { background: var(--accent); border-color: var(--accent); }
+
+    .process-step h3 {
+      font-size: clamp(19px, 2.3vw, 23px);
+      margin-bottom: 8px;
+    }
+    .process-step h3::before {
+      content: "0" counter(step);
+      font-family: var(--mono);
+      font-size: 12px;
+      color: var(--accent);
+      letter-spacing: 0.1em;
+      margin-right: 14px;
+      vertical-align: 3px;
+    }
+    .process-step p { font-size: 15.5px; color: var(--ink-soft); max-width: 560px; }
+
+    /* ============================================================
+       ЭКСПЕРТИЗА — цифры и утверждения
+       ============================================================ */
+    .proof-figures {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      border-top: 1px solid var(--line);
+      border-left: 1px solid var(--line);
+      margin-bottom: clamp(44px, 6vw, 72px);
+    }
+    .figure {
+      border-right: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      padding: clamp(22px, 3vw, 36px) clamp(18px, 2.5vw, 30px);
+    }
+    .figure-value {
+      font-family: var(--serif);
+      font-size: clamp(28px, 3.6vw, 42px);
+      line-height: 1.1;
+      margin-bottom: 8px;
+    }
+    .figure-label {
+      font-family: var(--mono);
+      font-size: 11.5px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+    }
+
+    @media (max-width: 860px) {
+      .proof-figures { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    .proof-statements {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: clamp(24px, 4vw, 56px);
+    }
+    .statement {
+      border-top: 2px solid var(--ink);
+      padding-top: 18px;
+    }
+    .statement h3 { font-size: 19px; margin-bottom: 8px; }
+    .statement p { font-size: 15px; color: var(--ink-soft); }
+
+    @media (max-width: 720px) {
+      .proof-statements { grid-template-columns: 1fr; }
+    }
+
+    /* ============================================================
+       С КЕМ Я РАБОТАЮ
+       ============================================================ */
+    .clients-list { list-style: none; border-top: 1px solid var(--line); max-width: 860px; }
+    .client-row {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr);
+      gap: clamp(16px, 3vw, 48px);
+      padding: 26px 0;
+      border-bottom: 1px solid var(--line);
+    }
+    .client-row h3 { font-size: 18.5px; font-family: var(--sans); font-weight: 600; letter-spacing: 0; }
+    .client-row p { font-size: 15.5px; color: var(--ink-soft); }
+
+    @media (max-width: 720px) {
+      .client-row { grid-template-columns: 1fr; gap: 6px; }
+    }
+
+    /* ============================================================
+       КОНТАКТ
+       ============================================================ */
+    .contact {
+      position: relative;
+      overflow: hidden;
+    }
+    .contact-inner {
+      max-width: 720px;
+    }
+    .contact h2 {
+      font-size: clamp(32px, 5vw, 54px);
+      margin: 18px 0 22px;
+    }
+    .contact h2 em { font-style: italic; color: var(--accent); }
+    .contact .lede { font-size: 18px; color: var(--ink-soft); max-width: 560px; margin-bottom: 40px; }
+
+    .contact-actions { display: flex; flex-wrap: wrap; gap: 14px; margin-bottom: 34px; }
+
+    .contact-note {
+      font-size: 14.5px;
+      color: var(--ink-faint);
+    }
+    .contact-note a { color: var(--ink-soft); text-decoration-color: var(--accent); text-underline-offset: 3px; }
+    .contact-note a:hover { color: var(--accent); }
+
+    .contact-motif {
+      position: absolute;
+      right: -40px;
+      bottom: -60px;
+      width: min(40vw, 420px);
+      color: var(--motif);
+      pointer-events: none;
+    }
+
+    /* ============================================================
+       ФУТЕР
+       ============================================================ */
+    .site-footer {
+      border-top: 1px solid var(--line);
+      padding: 34px 0 44px;
+    }
+    .footer-inner {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 12px;
+      font-size: 13.5px;
+      color: var(--ink-faint);
+    }
+    .footer-inner a { text-decoration: none; color: var(--ink-soft); }
+    .footer-inner a:hover { color: var(--accent); }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">К содержанию</a>
+
+  <!-- ============================================================
+       ШАПКА
+       ============================================================ -->
+  <header class="site-header" id="site-header">
+    <div class="container header-inner">
+      <a href="#top" class="brand" aria-label="На главную">
+        <span class="brand-mark">S<em>·</em>M</span>
+        <span class="brand-note">Research &amp; Strategy</span>
+      </a>
+
+      <nav class="site-nav" aria-label="Основная навигация">
+        <a href="#about">Обо мне</a>
+        <a href="#services">Услуги</a>
+        <a href="#process">Подход</a>
+        <a href="#proof">Экспертиза</a>
+        <a href="#clients">Клиенты</a>
+      </nav>
+
+      <div class="header-actions">
+        <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Переключить тему">
+          <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+            <path d="M21 12.8A8.5 8.5 0 1 1 11.2 3a6.6 6.6 0 0 0 9.8 9.8Z" stroke-linejoin="round"/>
+          </svg>
+          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+            <circle cx="12" cy="12" r="4.4"/>
+            <path d="M12 2.5v2.4M12 19.1v2.4M2.5 12h2.4M19.1 12h2.4M5.3 5.3l1.7 1.7M17 17l1.7 1.7M18.7 5.3 17 7M7 17l-1.7 1.7"/>
+          </svg>
+        </button>
+        <a href="#contact" class="btn btn-primary btn-header">Обсудить задачу</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- ============================================================
+         1. HERO
+         ============================================================ -->
+    <section class="hero" id="top">
+      <!-- Абстрактный мотив: карта смыслов / концептуальная схема -->
+      <svg class="hero-motif" viewBox="0 0 540 520" fill="none" aria-hidden="true">
+        <g stroke="currentColor" stroke-width="1">
+          <path d="M120 300 250 120M250 120 420 180M250 120 300 340M420 180 300 340M300 340 150 440M420 180 470 380M300 340 470 380M120 300 300 340" />
+          <path d="M250 120 90 90M470 380 380 480" stroke-dasharray="3 6"/>
+        </g>
+        <g fill="currentColor">
+          <circle cx="120" cy="300" r="5"/>
+          <circle cx="250" cy="120" r="7"/>
+          <circle cx="420" cy="180" r="5"/>
+          <circle cx="150" cy="440" r="4"/>
+          <circle cx="470" cy="380" r="5"/>
+          <circle cx="90" cy="90" r="3"/>
+          <circle cx="380" cy="480" r="3"/>
+        </g>
+        <circle class="node-accent" cx="300" cy="340" r="9"/>
+        <circle cx="300" cy="340" r="20" stroke="currentColor" stroke-width="1"/>
+      </svg>
+
+      <div class="container">
+        <div class="hero-inner">
+          <p class="overline">Head of Market Research · PhD по социологии</p>
+          <h1>Исследования, которые <em>проясняют</em> решения</h1>
+          <p class="hero-sub">
+            Помогаю фаундерам, продуктовым командам и компаниям принимать более точные
+            решения — через market research, UX research, стратегическую аналитику
+            и строгую исследовательскую методологию.
+          </p>
+          <div class="hero-actions">
+            <a href="#contact" class="btn btn-primary">Обсудить проект</a>
+            <a href="#services" class="btn btn-ghost">Чем я могу помочь</a>
+          </div>
+          <p class="hero-cred">
+            <span>9+ лет в исследованиях</span><span class="dot" aria-hidden="true"></span>
+            <span>Qualitative + Quantitative</span><span class="dot" aria-hidden="true"></span>
+            <span>Research · Стратегия · Решения</span>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         2. ОБО МНЕ
+         ============================================================ -->
+    <section class="section" id="about">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="overline">Обо мне</p>
+          <h2>Между академической строгостью и бизнес-решениями</h2>
+        </div>
+
+        <div class="about-grid">
+          <div class="about-text reveal">
+            <p class="first-line">
+              Я — руководитель направления market research, исследователь и аналитик
+              с PhD по социологии и более чем девятью годами практики. Работаю на
+              пересечении market research, UX research, стратегической аналитики
+              и product discovery.
+            </p>
+            <p>
+              Большинство исследований проваливаются не на этапе сбора данных, а раньше —
+              на этапе вопроса. Неточно сформулированная задача даёт аккуратные отчёты,
+              которые ничего не меняют. Поэтому я начинаю не с методов, а с главного:
+              <strong>какое решение стоит за этим вопросом и что нужно понять,
+              чтобы принять его уверенно.</strong>
+            </p>
+            <p>
+              Мой подход соединяет то, что редко встречается в одном специалисте:
+              академическую методологическую строгость, опыт руководства исследовательской
+              функцией, глубокое понимание рынка и пользователя — и умение переводить
+              выводы в язык стратегии и продукта. Я одинаково свободно работаю
+              с качественными и количественными данными: глубинные интервью, CustDev,
+              JTBD, опросные исследования, анализ трендов, валидация гипотез.
+            </p>
+            <p>
+              Я работаю на уровне Head of Market Research: могу лично провести сильный
+              исследовательский проект — и могу задать стандарты, культуру и качество
+              исследований для всей команды. Внутри моих процессов — современные
+              research-системы, в том числе AI-инструменты, которые увеличивают глубину,
+              скорость и масштаб работы. Но ценность, которую вы получаете, — не технологии,
+              а ясность: структурированная картина вместо неопределённости
+              и обоснованное направление вместо догадок.
+            </p>
+          </div>
+
+          <dl class="about-aside reveal">
+            <div>
+              <dt>Роль</dt>
+              <dd>Head of Market Research, независимый эксперт и research leader</dd>
+            </div>
+            <div>
+              <dt>База</dt>
+              <dd>PhD по социологии, 9+ лет исследовательской практики</dd>
+            </div>
+            <div>
+              <dt>Методы</dt>
+              <dd>Глубинные интервью, CustDev, JTBD, количественные исследования, анализ трендов, синтез инсайтов</dd>
+            </div>
+            <div>
+              <dt>Фокус</dt>
+              <dd>Исследования как основа стратегических и продуктовых решений</dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         3. УСЛУГИ
+         ============================================================ -->
+    <section class="section" id="services">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="overline">Услуги</p>
+          <h2>Шесть направлений экспертной работы</h2>
+          <p class="lede">
+            От отдельного исследовательского проекта до выстраивания всей research-функции.
+            Каждое направление заканчивается не отчётом, а основой для решения.
+          </p>
+        </div>
+
+        <ul class="services-list">
+          <li class="service reveal">
+            <span class="service-num" aria-hidden="true">01</span>
+            <div>
+              <h3>Research leadership и развитие исследовательской функции</h3>
+              <p class="service-desc">
+                Выстраиваю или улучшаю исследовательскую практику компании: процессы,
+                стандарты качества, методологическую рамку, приоритизацию исследований
+                и их связь с принятием решений. Работаю как внешний Head of Research —
+                без затрат на полноценный внутренний департамент.
+              </p>
+            </div>
+            <div class="service-value">
+              <p><b>Результат</b>Работающая research-функция: понятные процессы, воспроизводимое качество, команда, которая умеет отвечать на правильные вопросы.</p>
+              <p><b>Бизнес-задача</b>Решения в компании начинают опираться на данные системно, а не от случая к случаю.</p>
+            </div>
+          </li>
+
+          <li class="service reveal">
+            <span class="service-num" aria-hidden="true">02</span>
+            <div>
+              <h3>Market research и стратегическая аналитика</h3>
+              <p class="service-desc">
+                Исследую рынки, сегменты, конкурентную динамику и тренды. Собираю
+                разрозненные сигналы в целостную картину: где рынок сейчас, куда движется
+                и какие позиции в нём реально доступны вашему бизнесу.
+              </p>
+            </div>
+            <div class="service-value">
+              <p><b>Результат</b>Структурированная картина рынка и обоснованные стратегические опции — с оценкой рисков и допущений.</p>
+              <p><b>Бизнес-задача</b>Выход на новый рынок, репозиционирование, выбор направления роста, инвестиционное решение.</p>
+            </div>
+          </li>
+
+          <li class="service reveal">
+            <span class="service-num" aria-hidden="true">03</span>
+            <div>
+              <h3>UX research и product discovery</h3>
+              <p class="service-desc">
+                Помогаю продуктовым командам понять пользователей до того, как написан код:
+                исследую потребности, контексты, барьеры и реальное поведение. Discovery-циклы,
+                которые встроены в продуктовый процесс, а не существуют рядом с ним.
+              </p>
+            </div>
+            <div class="service-value">
+              <p><b>Результат</b>Проверенное понимание пользователя: что ему действительно нужно, за что он готов платить, что помешает ему выбрать вас.</p>
+              <p><b>Бизнес-задача</b>Снизить риск строить не то — до того, как в это вложены месяцы разработки.</p>
+            </div>
+          </li>
+
+          <li class="service reveal">
+            <span class="service-num" aria-hidden="true">04</span>
+            <div>
+              <h3>CustDev, JTBD и глубинные интервью</h3>
+              <p class="service-desc">
+                Проектирую и провожу качественные исследования на академическом уровне
+                строгости: выборка, гайды, техника интервью, работа с искажениями. JTBD
+                и CustDev — не как модные слова, а как дисциплинированные методы
+                с проверяемыми выводами.
+              </p>
+            </div>
+            <div class="service-value">
+              <p><b>Результат</b>Глубокое, а не поверхностное понимание мотивации клиентов — с выводами, которым можно доверять.</p>
+              <p><b>Бизнес-задача</b>Проверка гипотезы о ценности, поиск product-market fit, пересборка позиционирования и коммуникации.</p>
+            </div>
+          </li>
+
+          <li class="service reveal">
+            <span class="service-num" aria-hidden="true">05</span>
+            <div>
+              <h3>Синтез инсайтов и рамки для принятия решений</h3>
+              <p class="service-desc">
+                Превращаю накопленные данные — исследования, метрики, обратную связь,
+                рыночные сигналы — в ясную аналитическую структуру: что мы знаем, в чём
+                не уверены, что из этого следует. Строю decision frameworks под конкретное
+                решение компании.
+              </p>
+            </div>
+            <div class="service-value">
+              <p><b>Результат</b>Одна согласованная картина вместо десятка разрозненных отчётов — и явная логика выбора между опциями.</p>
+              <p><b>Бизнес-задача</b>Сложное решение, где данных много, а ясности нет: команда спорит, потому что смотрит на разные фрагменты.</p>
+            </div>
+          </li>
+
+          <li class="service reveal">
+            <span class="service-num" aria-hidden="true">06</span>
+            <div>
+              <h3>Research-системы и AI-enhanced workflows</h3>
+              <p class="service-desc">
+                Проектирую исследовательские системы, в которых современные AI-инструменты
+                усиливают методологию, а не подменяют её: ускоряют обработку данных,
+                расширяют охват анализа, высвобождают время для интерпретации. Технологии
+                внутри, качество мышления — снаружи.
+              </p>
+            </div>
+            <div class="service-value">
+              <p><b>Результат</b>Исследовательский процесс, который работает быстрее и глубже — без потери строгости и без слепого доверия алгоритмам.</p>
+              <p><b>Бизнес-задача</b>Команде нужно больше исследовательской работы, чем позволяют текущие ресурсы и сроки.</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         4. КАК Я РАБОТАЮ
+         ============================================================ -->
+    <section class="section" id="process">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="overline">Подход</p>
+          <h2>От неопределённости — к структуре и действию</h2>
+          <p class="lede">
+            Процесс, отточенный на десятках проектов. Каждый шаг существует не ради
+            методологии, а ради качества итогового решения.
+          </p>
+        </div>
+
+        <ol class="process-list">
+          <li class="process-step reveal">
+            <h3>Прояснение вопроса</h3>
+            <p>
+              Начинаем с решения, которое вам предстоит принять, а не со списка методов.
+              Разбираем зону неопределённости: что именно неизвестно и цена ошибки в чём.
+            </p>
+          </li>
+          <li class="process-step reveal">
+            <h3>Формулировка исследовательской задачи</h3>
+            <p>
+              Перевожу бизнес-вопрос в исследовательский: точный, проверяемый, с явными
+              гипотезами и критериями ответа. Это самый недооценённый этап — и тот,
+              где закладывается ценность всего проекта.
+            </p>
+          </li>
+          <li class="process-step reveal">
+            <h3>Дизайн методологии</h3>
+            <p>
+              Подбираю методы под задачу, а не наоборот: качественные, количественные
+              или их комбинацию. Проектирую выборку, инструменты и логику анализа так,
+              чтобы выводам можно было доверять.
+            </p>
+          </li>
+          <li class="process-step reveal">
+            <h3>Сбор данных</h3>
+            <p>
+              Интервью, опросы, десктоп-ресёрч, анализ вторичных данных и рыночных
+              сигналов. Дисциплинированная полевая работа с контролем качества
+              на каждом шаге.
+            </p>
+          </li>
+          <li class="process-step reveal">
+            <h3>Синтез и интерпретация</h3>
+            <p>
+              Отделяю сигнал от шума. Собираю данные в структуру: паттерны, противоречия,
+              границы уверенности. Честно фиксирую не только то, что мы узнали,
+              но и то, чего данные не говорят.
+            </p>
+          </li>
+          <li class="process-step reveal">
+            <h3>Перевод в решения</h3>
+            <p>
+              Финал — не презентация, а рабочая сессия: что из этого следует для стратегии,
+              продукта и ближайших шагов. Вы уходите с направлением действия,
+              а не со стопкой слайдов.
+            </p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         5. ДОКАЗАТЕЛЬСТВА ЭКСПЕРТИЗЫ
+         ============================================================ -->
+    <section class="section" id="proof">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="overline">Экспертиза</p>
+          <h2>Основания доверять выводам</h2>
+        </div>
+
+        <div class="proof-figures reveal">
+          <div class="figure">
+            <div class="figure-value">9+</div>
+            <div class="figure-label">лет исследовательской практики</div>
+          </div>
+          <div class="figure">
+            <div class="figure-value">PhD</div>
+            <div class="figure-label">по социологии</div>
+          </div>
+          <div class="figure">
+            <div class="figure-value">Qual + Quant</div>
+            <div class="figure-label">полный методологический спектр</div>
+          </div>
+          <div class="figure">
+            <div class="figure-value">Head</div>
+            <div class="figure-label">of Market Research</div>
+          </div>
+        </div>
+
+        <div class="proof-statements">
+          <div class="statement reveal">
+            <h3>Академическая база, проверенная практикой</h3>
+            <p>
+              PhD по социологии — это не строчка в резюме, а натренированное умение
+              работать с методологией, выборками, искажениями и границами выводов.
+              В коммерческих исследованиях это отличает знание от впечатления.
+            </p>
+          </div>
+          <div class="statement reveal">
+            <h3>Опыт на стыке исследований, продукта и стратегии</h3>
+            <p>
+              Я работала и с дискавери-циклами продуктовых команд, и со стратегическими
+              вопросами уровня компании. Поэтому выводы формулирую на языке решений,
+              а не на языке академических отчётов.
+            </p>
+          </div>
+          <div class="statement reveal">
+            <h3>Сложные и масштабные контексты</h3>
+            <p>
+              Новые рынки, неочевидные аудитории, противоречивые данные, высокая цена
+              ошибки — среда, в которой строгая методология и структурное мышление
+              дают наибольшее преимущество.
+            </p>
+          </div>
+          <div class="statement reveal">
+            <h3>Влияние, измеримое решениями</h3>
+            <p>
+              Критерий качества моей работы — не объём отчёта, а изменившееся решение:
+              скорректированная стратегия, перепроверенная гипотеза, вовремя
+              остановленная или, наоборот, усиленная инициатива.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         6. С КЕМ Я РАБОТАЮ
+         ============================================================ -->
+    <section class="section" id="clients">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="overline">Клиенты</p>
+          <h2>С кем я работаю</h2>
+        </div>
+
+        <ul class="clients-list reveal">
+          <li class="client-row">
+            <h3>Фаундеры и стартап-команды</h3>
+            <p>Проверка гипотезы, рынка или сегмента до серьёзных вложений — быстро, строго и с честными выводами, включая неудобные.</p>
+          </li>
+          <li class="client-row">
+            <h3>Продуктовые команды</h3>
+            <p>Discovery-исследования, понимание пользователей и валидация решений, встроенные в продуктовый цикл.</p>
+          </li>
+          <li class="client-row">
+            <h3>Компании со стратегическими вопросами</h3>
+            <p>Аналитика рынков, трендов и позиций для решений уровня направления или всей компании.</p>
+          </li>
+          <li class="client-row">
+            <h3>Команды, развивающие research-практику</h3>
+            <p>Аудит и повышение качества исследований: методология, процессы, стандарты, обучение команды.</p>
+          </li>
+          <li class="client-row">
+            <h3>Бизнесы без внутреннего research-департамента</h3>
+            <p>Senior research leadership по запросу — уровень руководителя исследований без затрат на полноценный штат.</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         7. КОНТАКТ / CTA
+         ============================================================ -->
+    <section class="section contact" id="contact">
+      <svg class="contact-motif" viewBox="0 0 420 380" fill="none" aria-hidden="true">
+        <g stroke="currentColor" stroke-width="1">
+          <path d="M60 300 200 90M200 90 360 160M200 90 240 280M360 160 240 280" />
+          <path d="M60 300 240 280" stroke-dasharray="3 6"/>
+        </g>
+        <g fill="currentColor">
+          <circle cx="60" cy="300" r="4"/>
+          <circle cx="200" cy="90" r="6"/>
+          <circle cx="360" cy="160" r="4"/>
+        </g>
+        <circle class="node-accent" cx="240" cy="280" r="8" fill="var(--accent)"/>
+      </svg>
+
+      <div class="container">
+        <div class="contact-inner reveal">
+          <p class="overline">Контакт</p>
+          <h2>Есть решение, которому нужна <em>ясность?</em></h2>
+          <p class="lede">
+            Напишите пару абзацев о вашей задаче — исследовательской, продуктовой
+            или стратегической. Я отвечу, как подступиться к ней, и предложу формат:
+            консультация, проект или стратегическая сессия.
+          </p>
+          <div class="contact-actions">
+            <a class="btn btn-primary" href="mailto:smmoskaleva@gmail.com?subject=Исследовательская%20задача">Обсудить проект</a>
+            <a class="btn btn-ghost" href="mailto:smmoskaleva@gmail.com?subject=Консультация">Записаться на консультацию</a>
+          </div>
+          <p class="contact-note">
+            Или просто напишите на
+            <a href="mailto:smmoskaleva@gmail.com">smmoskaleva@gmail.com</a> —
+            отвечаю в течение одного–двух рабочих дней.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============================================================
+       ФУТЕР
+       ============================================================ -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>© <span id="year">2026</span> · SM Research &amp; Strategy · Независимый эксперт</p>
+      <p><a href="mailto:smmoskaleva@gmail.com">smmoskaleva@gmail.com</a></p>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      "use strict";
+
+      /* ---------- Тема: сохранённый выбор > системная настройка ---------- */
+      var root = document.documentElement;
+      root.classList.add("js");
+      var stored = null;
+      try { stored = localStorage.getItem("theme"); } catch (e) {}
+      var systemDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+      if (stored === "dark" || (!stored && systemDark)) {
+        root.setAttribute("data-theme", "dark");
+      }
+
+      document.getElementById("theme-toggle").addEventListener("click", function () {
+        var dark = root.getAttribute("data-theme") === "dark";
+        if (dark) { root.removeAttribute("data-theme"); }
+        else { root.setAttribute("data-theme", "dark"); }
+        try { localStorage.setItem("theme", dark ? "light" : "dark"); } catch (e) {}
+      });
+
+      /* ---------- Шапка: линия при скролле ---------- */
+      var header = document.getElementById("site-header");
+      var onScroll = function () {
+        header.classList.toggle("is-scrolled", window.scrollY > 8);
+      };
+      window.addEventListener("scroll", onScroll, { passive: true });
+      onScroll();
+
+      /* ---------- Деликатное появление блоков ---------- */
+      var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      var targets = document.querySelectorAll(".reveal");
+      if (reduced || !("IntersectionObserver" in window)) {
+        targets.forEach(function (el) { el.classList.add("is-visible"); });
+      } else {
+        var io = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("is-visible");
+              io.unobserve(entry.target);
+            }
+          });
+        }, { rootMargin: "0px 0px -8% 0px", threshold: 0.1 });
+        targets.forEach(function (el) { io.observe(el); });
+      }
+
+      /* ---------- Год в футере ---------- */
+      document.getElementById("year").textContent = new Date().getFullYear();
+    })();
+  </script>
+</body>
+</html>
