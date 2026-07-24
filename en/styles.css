@@ -1,0 +1,972 @@
+/* ==========================================================================
+   DECISION — English site stylesheet
+   --------------------------------------------------------------------------
+   The design is carried over from the printed notebook:
+   — a solid pine plate on “Bone” paper, wine as the “where it hurts” accent;
+   — IBM Plex Sans for text, IBM Plex Mono for every service line;
+   — the kern scale (six tints of the cover ink) doubles as navigation;
+   — document typesetting: hairline rules, square corners, no drop shadows.
+
+   Everything you are likely to change lives in the :root block below.
+   Change a colour or a font there and it updates across the whole site.
+   ========================================================================== */
+
+:root {
+  /* --- Series palette (print → web) --- */
+  --pine: #2d4a3e;        /* pine, Pantone 3435 U — the cover plate */
+  --pine-deep: #243d33;   /* darker pine — button hover */
+  --paper: #f5f1e8;       /* “Bone” paper — page background */
+  --paper-page: #faf8f1;  /* slightly lighter — cards and spreads */
+  --graphite: #3f4550;    /* graphite Black 4 U — secondary text */
+  --wine: #8e3b3b;        /* wine — the “where it hurts” accent */
+  --ink: #242b27;         /* body text */
+  --line: #d8d2c4;        /* hairline rules and borders */
+
+  /* Pine tints for the kern scale (stage 1 → 6, plate to paper) */
+  --kern-1: #2d4a3e;
+  --kern-2: #556b60;
+  --kern-3: #798a7f;
+  --kern-4: #9ba69b;
+  --kern-5: #bdc2b8;
+  --kern-6: #dddcd4;
+
+  /* --- Typefaces --- */
+  --font-sans: "IBM Plex Sans", Arial, sans-serif;
+  --font-mono: "IBM Plex Mono", monospace;
+
+  /* --- Rhythm --- */
+  --section-gap: clamp(64px, 10vw, 128px); /* air between blocks */
+  --container: 1040px;                     /* content width */
+}
+
+/* --- Reset --- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  font-size: 17px;
+  line-height: 1.65;
+  color: var(--ink);
+  background: var(--paper);
+  -webkit-font-smoothing: antialiased;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: var(--pine);
+}
+
+.container {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ==========================================================================
+   SECTION TYPOGRAPHY
+   ========================================================================== */
+
+/* Service line above a heading — mono caps, letter-spaced, as in the book */
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--pine);
+  margin-bottom: 18px;
+}
+
+.section-title {
+  font-weight: 700;
+  font-size: clamp(26px, 4vw, 38px);
+  line-height: 1.22;
+  letter-spacing: -0.01em;
+  margin-bottom: 20px;
+  max-width: 24ch;
+}
+
+.section-lead {
+  font-size: clamp(16px, 2vw, 18px);
+  color: var(--graphite);
+  max-width: 62ch;
+  margin-bottom: 48px;
+}
+
+.section {
+  padding: var(--section-gap) 0;
+}
+
+/* Alternating background, separated by hairlines */
+.section-tinted {
+  background: var(--paper-page);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+/* ==========================================================================
+   BUTTONS — document style: square corners, mono caps
+   ========================================================================== */
+
+.btn {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-decoration: none;
+  text-align: center;
+  color: var(--paper);
+  background: var(--pine);
+  border: 1px solid var(--pine);
+  border-radius: 2px;
+  padding: 16px 36px;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.btn:hover {
+  background: var(--pine-deep);
+  border-color: var(--pine-deep);
+}
+
+/* Button sitting on the pine plate (hero): paper fill, pine text */
+.btn-paper {
+  color: var(--pine);
+  background: var(--paper);
+  border-color: var(--paper);
+}
+
+.btn-paper:hover {
+  background: #ffffff;
+  border-color: #ffffff;
+  color: var(--pine-deep);
+}
+
+.btn-small {
+  padding: 9px 18px;
+  font-size: 12px;
+}
+
+/* ==========================================================================
+   HEADER
+   ========================================================================== */
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(245, 241, 232, 0.94);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s ease;
+}
+
+/* The script adds this class on scroll — a hairline appears */
+.site-header.is-scrolled {
+  border-bottom-color: var(--line);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 14px;
+  padding-bottom: 14px;
+}
+
+.logo {
+  font-family: var(--font-mono);
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ink);
+  text-decoration: none;
+}
+
+/* ==========================================================================
+   1. HERO — the cover, translated to the web
+   ========================================================================== */
+
+.hero {
+  background: var(--pine);
+  color: var(--paper);
+  text-align: center;
+}
+
+.hero-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: clamp(72px, 11vw, 140px);
+  padding-bottom: clamp(64px, 9vw, 110px);
+}
+
+.hero-topline {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: rgba(245, 241, 232, 0.75);
+  margin-bottom: clamp(40px, 7vw, 80px);
+}
+
+/* The title: mono caps with wide tracking, exactly as on the cover */
+.hero-title {
+  font-family: var(--font-mono);
+  font-weight: 500;
+  font-size: clamp(38px, 8vw, 80px);
+  letter-spacing: 0.3em;
+  margin-left: 0.3em; /* compensates the tracking after the last letter */
+  text-transform: uppercase;
+  line-height: 1.1;
+  margin-bottom: 18px;
+}
+
+.hero-studio {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: rgba(245, 241, 232, 0.75);
+  margin-bottom: clamp(32px, 5vw, 48px);
+}
+
+.hero-subtitle {
+  font-size: clamp(16px, 2.2vw, 19px);
+  line-height: 1.7;
+  color: rgba(245, 241, 232, 0.9);
+  max-width: 50ch;
+  margin-bottom: 40px;
+}
+
+.hero-actions {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.hero-more {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  letter-spacing: 0.1em;
+  color: rgba(245, 241, 232, 0.8);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(245, 241, 232, 0.35);
+  padding-bottom: 3px;
+}
+
+.hero-more:hover {
+  color: #fff;
+  border-color: #fff;
+}
+
+/* ==========================================================================
+   KERN SCALE — six tints along the bottom edge, used as navigation
+   ========================================================================== */
+
+.kern {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+}
+
+.kern-seg {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 56px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: filter 0.2s ease;
+}
+
+.kern-seg:hover {
+  filter: brightness(1.08);
+}
+
+/* Dark tints carry paper text, light tints carry pine text */
+.kern-1 { background: var(--kern-1); color: var(--paper); }
+.kern-2 { background: var(--kern-2); color: var(--paper); }
+.kern-3 { background: var(--kern-3); color: var(--paper); }
+.kern-4 { background: var(--kern-4); color: var(--pine-deep); }
+.kern-5 { background: var(--kern-5); color: var(--pine-deep); }
+.kern-6 { background: var(--kern-6); color: var(--pine-deep); }
+
+.kern-num {
+  opacity: 0.7;
+}
+
+.kern-footer .kern-seg {
+  min-height: 12px;
+}
+
+/* ==========================================================================
+   GRIDS AND CARDS
+   ========================================================================== */
+
+.grid {
+  display: grid;
+  gap: 20px;
+}
+
+.grid-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.card {
+  background: var(--paper-page);
+  border: 1px solid var(--line);
+  border-radius: 2px;
+  padding: 30px 26px;
+}
+
+/* Card index — mono, like a subsection number in the notebook */
+.card-index {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--pine);
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 12px;
+  margin-bottom: 18px;
+}
+
+.card-text {
+  color: var(--graphite);
+  font-size: 15.5px;
+}
+
+/* ==========================================================================
+   3. THE SIX STAGES
+   ========================================================================== */
+
+.stages {
+  list-style: none;
+  max-width: 760px;
+  border-top: 1px solid var(--line);
+}
+
+.stage {
+  display: flex;
+  gap: 28px;
+  align-items: flex-start;
+  padding: 28px 4px;
+  border-bottom: 1px solid var(--line);
+  scroll-margin-top: 90px; /* keeps the anchor clear of the sticky header */
+}
+
+/* Large stage numeral, as on the stage title page */
+.stage-num {
+  flex-shrink: 0;
+  width: 56px;
+  font-weight: 700;
+  font-size: 44px;
+  line-height: 1;
+  color: var(--pine);
+}
+
+.stage-title {
+  font-weight: 600;
+  font-size: 20px;
+  margin-bottom: 4px;
+}
+
+/* “≈ 1 session · 20 minutes” — mono, as printed */
+.stage-meta {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--pine);
+  margin-bottom: 10px;
+}
+
+.stage-text {
+  color: var(--graphite);
+  font-size: 16px;
+  max-width: 58ch;
+}
+
+.method-note {
+  margin-top: 36px;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  color: var(--graphite);
+  padding-left: 16px;
+  border-left: 2px solid var(--pine);
+  max-width: 62ch;
+}
+
+/* ==========================================================================
+   4. THE DOOR — the two boxes from spread 4.4
+   ========================================================================== */
+
+.doors {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-bottom: 40px;
+}
+
+.door {
+  border: 1px solid var(--ink);
+  border-radius: 2px;
+  background: var(--paper-page);
+  padding: 28px 26px;
+}
+
+/* The checkbox square printed before the door type */
+.door-type {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink);
+  margin-bottom: 14px;
+}
+
+.door-type::before {
+  content: "";
+  width: 16px;
+  height: 16px;
+  border: 1px solid var(--ink);
+  flex-shrink: 0;
+}
+
+.door-text {
+  color: var(--graphite);
+  font-size: 15.5px;
+}
+
+/* Footnote-style pull quote, set in mono like the printed marginalia */
+.pull-quote {
+  font-family: var(--font-mono);
+  font-size: clamp(14px, 1.8vw, 16px);
+  line-height: 1.7;
+  color: var(--ink);
+  border-left: 2px solid var(--wine);
+  padding-left: 20px;
+  max-width: 64ch;
+}
+
+/* ==========================================================================
+   5. LOOK INSIDE — cards typeset as real notebook pages
+   ========================================================================== */
+
+.page-card {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-top: 4px solid var(--pine); /* the plate along the top edge */
+  border-radius: 2px;
+  padding: 22px 24px 18px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Running head: “DECISION · PROTOCOL … STAGE N / 6” */
+.page-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--graphite);
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+}
+
+.page-num {
+  font-family: var(--font-mono);
+  font-size: 13.5px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--pine);
+  margin-bottom: 16px;
+}
+
+/* Two-column table from spread 4.2 */
+.page-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 18px;
+}
+
+.page-table th {
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--graphite);
+  text-align: left;
+  background: var(--line);
+  padding: 8px 10px;
+  border: 1px solid var(--line);
+}
+
+.page-table td {
+  height: 32px;
+  border: 1px solid var(--line);
+}
+
+/* Field labels from the “Version #” spread */
+.page-fields {
+  list-style: none;
+  margin-bottom: 18px;
+}
+
+.page-fields li {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--graphite);
+  padding: 14px 0 4px;
+  border-bottom: 1px solid var(--line);
+}
+
+/* “Where it hurts” — printed in wine */
+.page-field-accent {
+  color: var(--wine) !important;
+}
+
+/* The two review boxes from stage 6 */
+.reviews {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+
+.review {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  border: 1px solid var(--line);
+  border-radius: 2px;
+  padding: 12px 14px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--graphite);
+}
+
+.review-marks {
+  font-weight: 400;
+  opacity: 0.6;
+}
+
+.page-foot {
+  margin-top: auto;
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--graphite);
+  opacity: 0.85;
+}
+
+/* ==========================================================================
+   6. COVERS — the four inks, drawn from the print layout.
+   The ink is passed per cover as --c in index.html; the kern tints are
+   derived from it automatically with color-mix.
+   ========================================================================== */
+
+.covers-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.cover-item {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  text-align: center;
+  font: inherit;
+}
+
+/* A5 proportions (1 : 1.41), solid plate in the chosen ink */
+.cover {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  aspect-ratio: 1 / 1.41;
+  background: var(--c);
+  color: var(--paper);
+  border-radius: 2px;
+  padding: 12% 8% 0;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.cover-item:hover .cover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 32px rgba(36, 43, 39, 0.18);
+}
+
+.cover-top {
+  font-family: var(--font-mono);
+  font-size: clamp(6px, 0.55vw, 8px);
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  opacity: 0.75;
+  align-self: flex-start;
+  text-align: left;
+}
+
+.cover-name {
+  font-family: var(--font-mono);
+  font-weight: 500;
+  font-size: clamp(14px, 1.8vw, 22px);
+  letter-spacing: 0.3em;
+  margin-left: 0.3em;
+  text-transform: uppercase;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.cover-studio {
+  font-family: var(--font-mono);
+  font-size: clamp(5px, 0.5vw, 7px);
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  opacity: 0.85;
+  margin-bottom: 10%;
+}
+
+/* Kern scale along the cover’s bottom edge */
+.cover-kern {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  width: calc(100% + 16%); /* cancels the side padding — full-bleed scale */
+  margin: 0 -8%;
+}
+
+.cover-kern i {
+  height: 12px;
+}
+
+.cover-kern i:nth-child(1) { background: color-mix(in srgb, var(--c) 88%, #000); }
+.cover-kern i:nth-child(2) { background: color-mix(in srgb, var(--c) 80%, var(--paper)); }
+.cover-kern i:nth-child(3) { background: color-mix(in srgb, var(--c) 62%, var(--paper)); }
+.cover-kern i:nth-child(4) { background: color-mix(in srgb, var(--c) 45%, var(--paper)); }
+.cover-kern i:nth-child(5) { background: color-mix(in srgb, var(--c) 28%, var(--paper)); }
+.cover-kern i:nth-child(6) { background: color-mix(in srgb, var(--c) 12%, var(--paper)); }
+
+.cover-caption {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--graphite);
+  margin-top: 14px;
+}
+
+.cover-item.is-selected .cover {
+  outline: 2px solid var(--ink);
+  outline-offset: 4px;
+}
+
+.cover-item.is-selected .cover-caption {
+  color: var(--ink);
+}
+
+/* ==========================================================================
+   COVER COLOUR SWATCHES in the buy block
+   ========================================================================== */
+
+.swatches {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  margin-bottom: 10px;
+}
+
+.swatch {
+  width: 36px;
+  height: 36px;
+  border: none;
+  border-radius: 2px;
+  background: var(--c);
+  cursor: pointer;
+  transition: transform 0.15s ease;
+}
+
+.swatch:hover {
+  transform: scale(1.08);
+}
+
+.swatch.is-selected {
+  outline: 2px solid var(--ink);
+  outline-offset: 3px;
+}
+
+.swatch-caption {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--graphite);
+  margin-bottom: 28px;
+}
+
+/* ==========================================================================
+   7. BUY BLOCK — the “document frame” from the notebook’s finale
+   ========================================================================== */
+
+.price-card {
+  background: var(--paper-page);
+  border: 1px solid var(--ink);
+  outline: 1px solid var(--ink); /* double rule, as around the decision page */
+  outline-offset: 3px;
+  border-radius: 2px;
+  padding: clamp(36px, 6vw, 60px);
+  max-width: 640px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.price-title {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.price-list {
+  list-style: none;
+  text-align: left;
+  max-width: 480px;
+  margin: 28px auto 36px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.price-list li {
+  padding-left: 30px;
+  position: relative;
+  color: var(--graphite);
+  font-size: 16px;
+}
+
+.price-list li::before {
+  content: "✓";
+  font-family: var(--font-mono);
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: var(--pine);
+  font-weight: 600;
+}
+
+.price-amount {
+  font-family: var(--font-mono);
+  font-weight: 600;
+  font-size: clamp(34px, 5.5vw, 46px);
+  letter-spacing: 0.02em;
+  margin-bottom: 8px;
+}
+
+.price-note {
+  color: var(--graphite);
+  font-size: 15px;
+  margin-bottom: 32px;
+}
+
+.btn-buy {
+  width: 100%;
+  max-width: 380px;
+}
+
+.price-guarantee {
+  margin-top: 26px;
+  font-size: 14px;
+  color: var(--graphite);
+}
+
+/* ==========================================================================
+   8. FOOTER
+   ========================================================================== */
+
+.site-footer {
+  background: var(--pine);
+  color: rgba(245, 241, 232, 0.8);
+  padding-top: 56px;
+}
+
+.footer-inner {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 40px;
+  padding-bottom: 40px;
+}
+
+.footer-brand {
+  font-family: var(--font-mono);
+  font-weight: 600;
+  font-size: 15px;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: var(--paper);
+  margin-bottom: 14px;
+}
+
+.footer-heading {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--paper);
+  margin-bottom: 14px;
+}
+
+.footer-text {
+  font-size: 15px;
+}
+
+.footer-text a {
+  color: rgba(245, 241, 232, 0.8);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(245, 241, 232, 0.35);
+}
+
+.footer-text a:hover {
+  color: #fff;
+  border-color: #fff;
+}
+
+.footer-socials {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(245, 241, 232, 0.2);
+  padding-top: 20px;
+  padding-bottom: 28px;
+  font-size: 13px;
+  color: rgba(245, 241, 232, 0.55);
+}
+
+/* ==========================================================================
+   RESPONSIVE
+   ========================================================================== */
+
+/* Tablets: three columns become two, four covers become 2 × 2 */
+@media (max-width: 900px) {
+  .grid-3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .covers-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .cover-name {
+    font-size: clamp(15px, 3.4vw, 24px);
+  }
+
+  .cover-top,
+  .cover-studio {
+    font-size: 6px;
+  }
+
+  .footer-inner {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* Phones: single column throughout */
+@media (max-width: 600px) {
+  body {
+    font-size: 16px;
+  }
+
+  .grid-3 {
+    grid-template-columns: 1fr;
+  }
+
+  .doors {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+  }
+
+  .btn-paper,
+  .btn-buy {
+    width: 100%; /* full-width buttons are easier to tap */
+  }
+
+  /* Kern navigation keeps only the numbers on narrow screens */
+  .kern-label {
+    display: none;
+  }
+
+  .kern-seg {
+    min-height: 44px;
+  }
+
+  .stage {
+    gap: 18px;
+    padding: 24px 0;
+  }
+
+  .stage-num {
+    width: 40px;
+    font-size: 32px;
+  }
+
+  .footer-inner {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+}
