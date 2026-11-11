@@ -452,26 +452,42 @@ a {
   overflow: hidden;
 }
 
-/* Название серии — мелко, сверху */
-.cover-series {
+/* Верхняя строка обложки — мелко, по левому краю, как в печати */
+.cover-top {
+  align-self: flex-start;
+  text-align: left;
   font-family: var(--font-mono);
-  font-size: clamp(7px, 0.75vw, 10px);
+  font-size: clamp(5px, 0.6vw, 8px);
   font-weight: 500;
-  letter-spacing: 0.3em;
+  letter-spacing: 0.16em; /* подобрано так, чтобы строка влезала в одну */
+  line-height: 1.5;
   text-transform: uppercase;
   opacity: 0.7;
 }
 
-/* Слово темы — то, что меняется от блокнота к блокноту */
-.cover-word {
+/* Название блокнота — в оптическом центре, набрано мелко и вразрядку.
+   Размер специально сдержанный: на печатной обложке слово «Решение»
+   занимает примерно треть ширины. */
+.cover-name {
   font-family: var(--font-mono);
   font-weight: 500;
-  font-size: clamp(11px, 1.5vw, 19px);
-  letter-spacing: 0.22em;
-  margin-left: 0.22em;
+  font-size: clamp(7px, 0.95vw, 13px);
+  letter-spacing: 0.3em;
+  margin-left: 0.3em;   /* компенсирует разрядку после последней буквы */
   text-transform: uppercase;
   margin-top: auto;
   margin-bottom: auto;
+}
+
+/* Марка по нижнему обрезу — над керн-шкалой */
+.cover-studio {
+  font-family: var(--font-mono);
+  font-size: clamp(5px, 0.6vw, 8px);
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  opacity: 0.8;
+  margin-bottom: 12%;
 }
 
 /* Керн-шкала по нижнему обрезу обложки */
@@ -590,28 +606,23 @@ a {
   margin-bottom: 18px;
 }
 
+/* Название краски */
+.product-title {
+  font-weight: 600;
+  font-size: 19px;
+  color: var(--c);
+  margin-bottom: 2px;
+}
+
+/* Код краски — моно, самым мелким кеглем */
 .product-ink {
   font-family: var(--font-mono);
   font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.16em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--c);
-  margin-bottom: 6px;
-}
-
-.product-title {
-  font-weight: 600;
-  font-size: 20px;
-  margin-bottom: 8px;
-}
-
-.product-text {
-  font-size: 14.5px;
-  line-height: 1.6;
   color: var(--graphite);
-  margin-bottom: 20px;
-  flex-grow: 1;   /* прижимает кнопки всех карточек к одной линии */
+  opacity: 0.75;
+  margin-bottom: 18px;
 }
 
 /* ==========================================================================
@@ -900,12 +911,13 @@ a {
     width: min(170px, 46vw);
   }
 
-  .cover-word {
-    font-size: 13px;
+  .cover-name {
+    font-size: 9px;
   }
 
-  .cover-series {
-    font-size: 8px;
+  .cover-top,
+  .cover-studio {
+    font-size: 5.5px;
   }
 
   .facts-grid {
@@ -919,10 +931,6 @@ a {
 
   .product-title {
     font-size: 17px;
-  }
-
-  .product-text {
-    font-size: 13.5px;
   }
 
   .slide .btn,
