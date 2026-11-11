@@ -5,335 +5,232 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- SEO: заголовок и описание страницы (можно менять текст) -->
-  <title>РЕШЕНИЕ · Модуль 01 — бумажный блокнот-протокол, 6 стадий</title>
+  <title>РЕШЕНИЕ — бумажный блокнот-протокол · VIZHU</title>
+  <meta name="description" content="«Решение» — бумажный блокнот для одного важного решения. Шесть стадий: от постановки вопроса до решения с датой пересмотра. Открыт предзаказ.">
 
-  <meta name="description" content="«Решение» — бумажный рефлексивный блокнот для одного важного решения о профессии и своём деле. Шесть стадий, четыре цвета обложки. Метод разработан социологом.">
-
-  <!-- Шрифты блокнота: IBM Plex Sans + IBM Plex Mono.
-       Подключены ЛОКАЛЬНО из папки fonts/ — без обращений к Google,
-       поэтому сайт одинаково открывается в России и за рубежом. -->
+  <!-- Шрифты подключены локально из папки fonts/ — внешних запросов нет,
+       сайт одинаково открывается в России без VPN. -->
   <link rel="stylesheet" href="fonts.css">
-
-  <!-- Основные стили сайта -->
   <link rel="stylesheet" href="styles.css">
 
-  <!-- Иконка вкладки: квадрат цвета хвои -->
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%232D4A3E'/><text x='50' y='68' font-size='52' text-anchor='middle' fill='%23F5F1E8' font-family='monospace'>Р</text></svg>">
+  <!-- Иконка вкладки браузера -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%232D4A3E'/><text x='50' y='70' font-size='54' text-anchor='middle' fill='%23F5F1E8' font-family='monospace'>V</text></svg>">
 </head>
 <body>
 
   <!-- ============================================================
-       ШАПКА: название слева, кнопка покупки справа
+       ШАПКА — марка слева, кнопка предзаказа справа
        ============================================================ -->
   <header class="site-header" id="site-header">
     <div class="container header-inner">
-      <a href="#hero" class="logo">РЕШЕНИЕ&nbsp;·&nbsp;01</a>
-      <a href="#price" class="btn btn-small">Купить</a>
+      <a href="#hero" class="logo">VIZHU</a>
+      <a href="#preorder" class="btn btn-small" data-scroll-to-email>Предзаказ</a>
     </div>
   </header>
 
   <!-- ============================================================
-       1. HERO — обложка блокнота, перенесённая в веб.
-       Керн-шкала внизу — навигация по шести стадиям.
+       1. ОБЛОЖКА — первый экран.
+       Композиция повторяет печатную обложку блокнота.
        ============================================================ -->
   <section class="hero" id="hero">
     <div class="container hero-inner">
       <p class="hero-topline">Протокол одного решения&nbsp;·&nbsp;6&nbsp;стадий</p>
 
       <h1 class="hero-title">Решение</h1>
-      <p class="hero-module">Модуль 01</p>
+      <p class="hero-brand">VIZHU</p>
 
       <p class="hero-subtitle">
-        Бумажный блокнот для одного важного решения о профессии и своём деле.
-        Не дневник — исследовательский протокол.
+        Бумажный блокнот для одного важного решения.
+        Не дневник&nbsp;— исследовательский протокол.
       </p>
 
-      <div class="hero-actions">
-        <a href="#price" class="btn btn-paper">Купить блокнот</a>
-        <a href="#covers" class="hero-more">Выбрать обложку&nbsp;↓</a>
-      </div>
+      <!-- Кнопка прокручивает к форме и ставит курсор в поле почты -->
+      <a href="#preorder" class="btn btn-paper" data-scroll-to-email>Оформить предзаказ</a>
     </div>
 
-    <!-- Керн-шкала: шесть слоёв-растяжек, каждый ведёт к своей стадии -->
-    <nav class="kern" aria-label="Шесть стадий">
-      <a href="#stage-1" class="kern-seg kern-1"><span class="kern-num">1</span><span class="kern-label">Вопрос</span></a>
-      <a href="#stage-2" class="kern-seg kern-2"><span class="kern-num">2</span><span class="kern-label">Варианты</span></a>
-      <a href="#stage-3" class="kern-seg kern-3"><span class="kern-num">3</span><span class="kern-label">Версии</span></a>
-      <a href="#stage-4" class="kern-seg kern-4"><span class="kern-num">4</span><span class="kern-label">Проверка</span></a>
-      <a href="#stage-5" class="kern-seg kern-5"><span class="kern-num">5</span><span class="kern-label">Поле</span></a>
-      <a href="#stage-6" class="kern-seg kern-6"><span class="kern-num">6</span><span class="kern-label">Решение</span></a>
-    </nav>
-  </section>
-
-  <!-- ============================================================
-       2. ОБЛОЖКИ — четыре краски серии.
-       Пока обложки нарисованы кодом по печатному макету.
-       КОГДА ПОЯВЯТСЯ ФОТОГРАФИИ: замените каждый <div class="cover">
-       на <img src="photo-hvoya.jpg" alt="Блокнот «Решение», хвоя">
-       (файлы фото положите рядом с index.html).
-       Клик по обложке выбирает цвет и ведёт к покупке.
-       ============================================================ -->
-  <section class="section" id="covers">
-    <div class="container">
-      <p class="eyebrow">Четыре краски</p>
-      <h2 class="section-title">Один блокнот&nbsp;— выберите свою обложку</h2>
-
-      <div class="covers-grid">
-        <!-- Обложка: хвоя -->
-        <button class="cover-item" data-color="Хвоя" type="button">
-          <span class="cover" style="--c:#2d4a3e">
-            <span class="cover-top">Протокол одного решения · 6 стадий</span>
-            <span class="cover-name">Решение</span>
-            <span class="cover-studio">Студия инструментов мышления</span>
-            <span class="cover-kern"><i></i><i></i><i></i><i></i><i></i><i></i></span>
-          </span>
-          <span class="cover-caption">Хвоя</span>
-        </button>
-
-        <!-- Обложка: терракота -->
-        <button class="cover-item" data-color="Терракота" type="button">
-          <span class="cover" style="--c:#b05c2f">
-            <span class="cover-top">Протокол одного решения · 6 стадий</span>
-            <span class="cover-name">Решение</span>
-            <span class="cover-studio">Студия инструментов мышления</span>
-            <span class="cover-kern"><i></i><i></i><i></i><i></i><i></i><i></i></span>
-          </span>
-          <span class="cover-caption">Терракота</span>
-        </button>
-
-        <!-- Обложка: винный -->
-        <button class="cover-item" data-color="Винный" type="button">
-          <span class="cover" style="--c:#8e3b3b">
-            <span class="cover-top">Протокол одного решения · 6 стадий</span>
-            <span class="cover-name">Решение</span>
-            <span class="cover-studio">Студия инструментов мышления</span>
-            <span class="cover-kern"><i></i><i></i><i></i><i></i><i></i><i></i></span>
-          </span>
-          <span class="cover-caption">Винный</span>
-        </button>
-
-        <!-- Обложка: графит -->
-        <button class="cover-item" data-color="Графит" type="button">
-          <span class="cover" style="--c:#3f4550">
-            <span class="cover-top">Протокол одного решения · 6 стадий</span>
-            <span class="cover-name">Решение</span>
-            <span class="cover-studio">Студия инструментов мышления</span>
-            <span class="cover-kern"><i></i><i></i><i></i><i></i><i></i><i></i></span>
-          </span>
-          <span class="cover-caption">Графит</span>
-        </button>
-      </div>
+    <!-- Керн-шкала: шесть слоёв краски по нижнему обрезу, как на обложке -->
+    <div class="kern" aria-hidden="true">
+      <span class="kern-seg kern-1"></span><span class="kern-seg kern-2"></span><span class="kern-seg kern-3"></span><span class="kern-seg kern-4"></span><span class="kern-seg kern-5"></span><span class="kern-seg kern-6"></span>
     </div>
   </section>
 
   <!-- ============================================================
-       3. МЕТОД — шесть стадий, коротко
+       2. ЗАЧЕМ — коротко, два абзаца
        ============================================================ -->
-  <section class="section section-tinted" id="method">
-    <div class="container">
-      <p class="eyebrow">Метод</p>
+  <section class="section" id="why">
+    <div class="container narrow">
+      <p class="eyebrow">Зачем</p>
       <h2 class="section-title">Одно важное решение&nbsp;— как небольшое исследование, а&nbsp;не&nbsp;как приступ тревоги в&nbsp;три часа ночи</h2>
+      <p class="lede">
+        Метод пришёл из качественной социологии: сначала вопрос, потом гипотезы,
+        потом наблюдение — и только затем решение, с датой пересмотра.
+        Блокнот не даёт советов. Он задаёт структуру, в которой
+        ваш собственный ответ становится виден.
+      </p>
+      <p class="rule">Пишите карандашом, пока думаете; ручкой&nbsp;— то, что стало данными.</p>
+    </div>
+  </section>
 
-      <!-- Шесть стадий: только название и одна строка -->
+  <!-- ============================================================
+       3. ШЕСТЬ СТАДИЙ — по одной строке на стадию
+       ============================================================ -->
+  <section class="section" id="stages">
+    <div class="container narrow">
+      <p class="eyebrow">Что внутри</p>
+      <h2 class="section-title">Шесть стадий</h2>
+
       <ol class="stages">
-        <li class="stage" id="stage-1">
+        <li class="stage">
           <span class="stage-num">1</span>
-          <div class="stage-body">
+          <div>
             <h3 class="stage-title">Постановка вопроса</h3>
-            <p class="stage-text">«Что-то не так» превращается в один вопрос — с границами и сроком.</p>
+            <p class="stage-text">«Что-то не так» превращается в один вопрос: конкретный, с границами и сроком.</p>
+            <p class="stage-meta">≈ 1 сеанс · 20 минут</p>
           </div>
         </li>
-        <li class="stage" id="stage-2">
+        <li class="stage">
           <span class="stage-num">2</span>
-          <div class="stage-body">
+          <div>
             <h3 class="stage-title">Карта вариантов</h3>
             <p class="stage-text">Все пути на одной карте — даже нереалистичные и стыдные.</p>
+            <p class="stage-meta">≈ 2 сеанса по 20 минут</p>
           </div>
         </li>
-        <li class="stage" id="stage-3">
+        <li class="stage">
           <span class="stage-num">3</span>
-          <div class="stage-body">
+          <div>
             <h3 class="stage-title">Версии будущего</h3>
-            <p class="stage-text">Каждый серьёзный вариант — как конкретный вторник через два года.</p>
+            <p class="stage-text">Каждый серьёзный вариант прописан как конкретный вторник через два года.</p>
+            <p class="stage-meta">≈ 2 сеанса по 30 минут</p>
           </div>
         </li>
-        <li class="stage" id="stage-4">
+        <li class="stage">
           <span class="stage-num">4</span>
-          <div class="stage-body">
-            <h3 class="stage-title">Проверка</h3>
-            <p class="stage-text">Версии становятся гипотезами, которые можно проверить за неделю-две.</p>
+          <div>
+            <h3 class="stage-title">Проверка гипотез</h3>
+            <p class="stage-text">Страхи переписываются в проверяемые утверждения и маленькие дешёвые эксперименты.</p>
+            <p class="stage-meta">≈ 2–4 недели</p>
           </div>
         </li>
-        <li class="stage" id="stage-5">
+        <li class="stage">
           <span class="stage-num">5</span>
-          <div class="stage-body">
+          <div>
             <h3 class="stage-title">Поле</h3>
-            <p class="stage-text">Семь дней коротких записей: данные о себе, а не мнения.</p>
+            <p class="stage-text">Данные о себе: как вы реагируете на практике, а не в теории.</p>
+            <p class="stage-meta">6 недель дневника</p>
           </div>
         </li>
-        <li class="stage" id="stage-6">
+        <li class="stage">
           <span class="stage-num">6</span>
-          <div class="stage-body">
-            <h3 class="stage-title">Решение</h3>
-            <p class="stage-text">Документ с подписью и датой пересмотра — вместо «хеппи-энда».</p>
+          <div>
+            <h3 class="stage-title">Решение и пересмотр</h3>
+            <p class="stage-text">Решение — не приговор, а гипотеза с датой проверки. Одно предложение, подпись, два пересмотра.</p>
+            <p class="stage-meta">1 сеанс + пересмотр через 3 и 12 месяцев</p>
           </div>
         </li>
       </ol>
-
-      <p class="method-note">Пишите карандашом, пока думаете; ручкой&nbsp;— то, что стало данными.</p>
     </div>
   </section>
 
   <!-- ============================================================
-       4. ТРИ РАЗВОРОТА ИЗ БЛОКНОТА
+       4. ОБЛОЖКИ — четыре краски.
+       Пока нарисованы кодом по печатному макету.
+       КОГДА ПОЯВЯТСЯ ФОТО: замените каждый <span class="cover">…</span>
+       на <img src="hvoya.jpg" alt="Блокнот «Решение», хвоя">
+       и положите файлы фотографий рядом с index.html.
        ============================================================ -->
-  <section class="section" id="inside">
-    <div class="container">
-      <p class="eyebrow">Загляните внутрь</p>
-      <h2 class="section-title">Три разворота из&nbsp;блокнота</h2>
+  <section class="section" id="covers">
+    <div class="container narrow">
+      <p class="eyebrow">Обложка</p>
+      <h2 class="section-title">Четыре краски</h2>
 
-      <div class="grid grid-3">
-        <article class="page-card">
-          <p class="page-head"><span>Решение · протокол</span><span>Стадия 1 / 6</span></p>
-          <p class="page-num">1.2 · Что случится, если не&nbsp;решать год</p>
-          <p class="page-hint">Без драматизации.</p>
-          <div class="page-lines" aria-hidden="true"><i></i><i></i><i></i></div>
-          <p class="page-foot">Заполняется карандашом</p>
-        </article>
-
-        <article class="page-card">
-          <p class="page-head"><span>Решение · протокол</span><span>Стадия 2 / 6</span></p>
-          <p class="page-num">2.4 · Мой выбор или чужое ожидание</p>
-          <p class="page-hint">Что останется, если убрать чужие ожидания?</p>
-          <div class="page-lines" aria-hidden="true"><i></i><i></i><i></i></div>
-          <p class="page-foot">Заполняется карандашом</p>
-        </article>
-
-        <article class="page-card">
-          <p class="page-head"><span>Решение · протокол</span><span>Стадия 3 / 6</span></p>
-          <p class="page-num">Версия №&nbsp;—</p>
-          <ul class="page-fields">
-            <li>Вторник через два года</li>
-            <li>Что делаю руками и головой</li>
-            <li>Кто рядом</li>
-            <li class="page-field-accent">Где болит</li>
-          </ul>
-          <p class="page-foot">Заполняется карандашом</p>
-        </article>
+      <div class="covers">
+        <figure class="cover-item">
+          <span class="cover" style="--c:#2d4a3e">
+            <span class="cover-name">Решение</span>
+            <span class="cover-kern"><i></i><i></i><i></i><i></i><i></i><i></i></span>
+          </span>
+          <figcaption>Хвоя</figcaption>
+        </figure>
+        <figure class="cover-item">
+          <span class="cover" style="--c:#b05c2f">
+            <span class="cover-name">Решение</span>
+            <span class="cover-kern"><i></i><i></i><i></i><i></i><i></i><i></i></span>
+          </span>
+          <figcaption>Терракота</figcaption>
+        </figure>
+        <figure class="cover-item">
+          <span class="cover" style="--c:#8e3b3b">
+            <span class="cover-name">Решение</span>
+            <span class="cover-kern"><i></i><i></i><i></i><i></i><i></i><i></i></span>
+          </span>
+          <figcaption>Винный</figcaption>
+        </figure>
+        <figure class="cover-item">
+          <span class="cover" style="--c:#3f4550">
+            <span class="cover-name">Решение</span>
+            <span class="cover-kern"><i></i><i></i><i></i><i></i><i></i><i></i></span>
+          </span>
+          <figcaption>Графит</figcaption>
+        </figure>
       </div>
+
+      <p class="covers-note">Формат A5, плотная бумага «Кость» — для карандаша и ручки.</p>
     </div>
   </section>
 
   <!-- ============================================================
-       5. КАК ЭТО РАБОТАЕТ — три шага от заказа до решения
+       5. ПРЕДЗАКАЗ — форма сбора почты.
+       ВАЖНО: форму нужно подключить к сервису, иначе письма
+       никуда не уйдут. Адрес сервиса вписывается в script.js,
+       в самую первую строку (FORM_ENDPOINT).
        ============================================================ -->
-  <section class="section section-tinted" id="how">
-    <div class="container">
-      <p class="eyebrow">Как это работает</p>
-      <h2 class="section-title">От заказа до решения</h2>
+  <section class="section section-pine" id="preorder">
+    <div class="container narrow">
+      <p class="eyebrow eyebrow-light">Предзаказ</p>
+      <h2 class="section-title">Блокнот готовится к&nbsp;печати</h2>
+      <p class="lede lede-light">
+        Оставьте почту — пришлём письмо, когда откроем продажи:
+        с ценой, сроками доставки и выбором обложки.
+      </p>
 
-      <div class="grid grid-3">
-        <div class="card">
-          <p class="card-index">Шаг 1</p>
-          <h3 class="card-title">Закажите</h3>
-          <p class="card-text">Выберите цвет обложки и оплатите — отправим в течение 1–2 дней.</p>
-        </div>
-        <div class="card">
-          <p class="card-index">Шаг 2</p>
-          <h3 class="card-title">Получите</h3>
-          <p class="card-text">Доставка Почтой или СДЭК по России и миру. Внутри — карандаш стадий и инструкция.</p>
-        </div>
-        <div class="card">
-          <p class="card-index">Шаг 3</p>
-          <h3 class="card-title">Пройдите шесть стадий</h3>
-          <p class="card-text">Сеансы по 20–30 минут. В финале — решение с подписью и датой пересмотра.</p>
-        </div>
-      </div>
+      <form class="preorder-form" id="preorder-form" novalidate>
+        <label class="sr-only" for="email">Электронная почта</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          class="preorder-input"
+          placeholder="pochta@example.com"
+          autocomplete="email"
+          required>
+        <button type="submit" class="btn btn-paper">Записаться</button>
+      </form>
+
+      <!-- Сюда скрипт выводит результат отправки -->
+      <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+
+      <p class="form-note">Одно письмо о запуске. Ни рассылок, ни передачи почты третьим лицам.</p>
     </div>
   </section>
 
   <!-- ============================================================
-       6. ЦЕНА И ПОКУПКА — «рамка документа» из финала блокнота
-       ============================================================ -->
-  <section class="section" id="price">
-    <div class="container">
-      <div class="price-card">
-        <p class="eyebrow">Решение · Модуль 01</p>
-        <h2 class="section-title price-title">Бумажный блокнот, A5</h2>
-
-        <ul class="price-list">
-          <li>6 стадий: инструкции и рабочие развороты</li>
-          <li>Плотная бумага «Кость» — для карандаша и ручки</li>
-          <li>Обложка в одной из четырёх красок</li>
-          <li>Доставка по России и миру</li>
-        </ul>
-
-        <!-- Выбор цвета обложки. Выбранный цвет подставляется в строку ниже.
-             Клик по большим обложкам выше тоже выбирает цвет. -->
-        <div class="swatches" role="group" aria-label="Цвет обложки">
-          <button class="swatch is-selected" data-color="Хвоя" type="button" style="--c:#2d4a3e" aria-label="Хвоя"></button>
-          <button class="swatch" data-color="Терракота" type="button" style="--c:#b05c2f" aria-label="Терракота"></button>
-          <button class="swatch" data-color="Винный" type="button" style="--c:#8e3b3b" aria-label="Винный"></button>
-          <button class="swatch" data-color="Графит" type="button" style="--c:#3f4550" aria-label="Графит"></button>
-        </div>
-        <p class="swatch-caption">Обложка: <span id="selected-color">Хвоя</span></p>
-
-        <!-- Цена. Поменяйте цифру на свою. -->
-        <p class="price-amount">1 990 ₽</p>
-        <p class="price-note">Доставка считается при оформлении заказа</p>
-
-        <!--
-          КНОПКА ОПЛАТЫ — ГЛАВНОЕ МЕСТО ДЛЯ ЗАМЕНЫ ССЫЛКИ.
-          Вместо "#" вставьте свою платёжную ссылку, например:
-          - ЮKassa:               https://yookassa.ru/my/i/xxxxxx
-          - Тинькофф (Т-Касса):   https://securepay.tinkoff.ru/xxxxx
-          - Stripe Payment Link:  https://buy.stripe.com/xxxxxx
-        -->
-        <a href="#" class="btn btn-buy" target="_blank" rel="noopener">Купить блокнот</a>
-
-        <p class="price-guarantee">Метод разработан социологом (PhD). Не подойдёт&nbsp;— вернём деньги в течение 14&nbsp;дней.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================================
-       7. ФУТЕР — контакты и соцсети
+       6. ФУТЕР
        ============================================================ -->
   <footer class="site-footer">
-    <div class="container footer-inner">
-      <div>
-        <p class="footer-brand">Решение</p>
-        <p class="footer-text">Студия инструментов мышления.<br>Протоколы для одного важного решения.</p>
-      </div>
-
-      <div>
-        <p class="footer-heading">Контакты</p>
+    <div class="container narrow footer-inner">
+      <p class="footer-brand">VIZHU</p>
+      <p class="footer-text">
         <!-- Замените на свою почту -->
-        <p class="footer-text"><a href="mailto:hello@example.com">hello@example.com</a></p>
-      </div>
-
-      <div>
-        <p class="footer-heading">Соцсети</p>
+        <a href="mailto:hello@example.com">hello@example.com</a>
         <!-- Замените "#" на ссылки на свои профили -->
-        <p class="footer-text footer-socials">
-          <a href="#" rel="noopener">Telegram</a>
-          <a href="#" rel="noopener">Instagram</a>
-          <a href="#" rel="noopener">VK</a>
-        </p>
-      </div>
-    </div>
-
-    <div class="container footer-bottom">
-      <p>© 2026 Студия инструментов мышления. Все права защищены.</p>
-    </div>
-
-    <!-- Керн-шкала по нижнему обрезу — как на обложке -->
-    <div class="kern kern-footer" aria-hidden="true">
-      <span class="kern-seg kern-1"></span><span class="kern-seg kern-2"></span><span class="kern-seg kern-3"></span><span class="kern-seg kern-4"></span><span class="kern-seg kern-5"></span><span class="kern-seg kern-6"></span>
+        <a href="#" rel="noopener">Telegram</a>
+        <a href="#" rel="noopener">VK</a>
+      </p>
+      <p class="footer-bottom">© 2026 VIZHU. Метод разработан социологом (PhD).</p>
     </div>
   </footer>
 
-  <!-- Скрипт: тень у шапки, выбор цвета обложки, заглушка кнопки оплаты -->
   <script src="script.js"></script>
 </body>
 </html>

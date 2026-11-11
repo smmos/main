@@ -1,64 +1,126 @@
 /* ==========================================================================
-   МИНИМАЛЬНЫЙ JAVASCRIPT ЛЕНДИНГА
+   VIZHU · «РЕШЕНИЕ» — скрипт сайта
    --------------------------------------------------------------------------
-   Три вещи:
-   1. Тонкая линия у шапки при прокрутке.
-   2. Выбор цвета обложки (большие обложки + квадраты в блоке цены).
-   3. Напоминание, если кнопка оплаты ещё ведёт на заглушку "#".
+   Здесь три вещи:
+   1. НАСТРОЙКА ФОРМЫ — одна строка, которую нужно заполнить (см. ниже).
+   2. Кнопки «Предзаказ» прокручивают к форме и ставят курсор в поле почты.
+   3. Отправка формы с проверкой адреса и понятными сообщениями.
    ========================================================================== */
 
-// 1. Шапка: класс .is-scrolled добавляется при прокрутке,
-//    CSS по нему рисует тонкую линию под шапкой.
+
+/* ==========================================================================
+   ШАГ, КОТОРЫЙ НУЖНО СДЕЛАТЬ ПЕРЕД ПУБЛИКАЦИЕЙ
+   --------------------------------------------------------------------------
+   Сайт состоит только из файлов и сам по себе НЕ УМЕЕТ хранить почту.
+   Чтобы адреса куда-то приходили, нужен бесплатный сервис форм.
+   Заведите форму, скопируйте её адрес и вставьте его в кавычки ниже.
+
+   Пример: const FORM_ENDPOINT = 'https://formspree.io/f/abcdwxyz';
+
+   Пока строка пустая, форма честно говорит посетителю, что приём заявок
+   ещё не открыт, и НЕ делает вид, что письмо отправлено.
+   ========================================================================== */
+
+const FORM_ENDPOINT = '';
+
+
+/* --------------------------------------------------------------------------
+   1. Шапка: тонкая линия появляется при прокрутке
+   -------------------------------------------------------------------------- */
+
 const header = document.getElementById('site-header');
 
 window.addEventListener('scroll', () => {
   header.classList.toggle('is-scrolled', window.scrollY > 10);
 });
 
-// 2. Выбор цвета обложки.
-//    Кликабельны и большие обложки (.cover-item), и квадраты в блоке цены
-//    (.swatch) — у всех есть атрибут data-color с названием краски.
-//    Выбранное название подставляется в строку «Обложка: …» рядом с ценой.
-const colorButtons = document.querySelectorAll('[data-color]');
-const selectedColorLabel = document.getElementById('selected-color');
 
-function selectColor(colorName) {
-  // Подсвечиваем выбранный вариант везде, снимаем выделение с остальных
-  colorButtons.forEach((btn) => {
-    btn.classList.toggle('is-selected', btn.dataset.color === colorName);
-  });
-  // Пишем название выбранной краски в блоке цены
-  selectedColorLabel.textContent = colorName;
-}
+/* --------------------------------------------------------------------------
+   2. Кнопки «Предзаказ» — прокрутка к форме и курсор в поле почты
+   -------------------------------------------------------------------------- */
 
-colorButtons.forEach((btn) => {
-  btn.addEventListener('click', () => {
-    selectColor(btn.dataset.color);
-    // Клик по большой обложке дополнительно ведёт к блоку покупки
-    if (btn.classList.contains('cover-item')) {
-      document.getElementById('price').scrollIntoView({ behavior: 'smooth' });
-    }
+const emailInput = document.getElementById('email');
+const preorderSection = document.getElementById('preorder');
+
+document.querySelectorAll('[data-scroll-to-email]').forEach((link) => {
+  link.addEventListener('click', (event) => {
+    event.preventDefault();
+    preorderSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    // Ставим курсор в поле после того, как прокрутка закончится
+    window.setTimeout(() => emailInput.focus({ preventScroll: true }), 600);
   });
 });
 
-// 3. Кнопка оплаты: пока href="#" (заглушка), не даём странице прыгать
-//    наверх и напоминаем, что ссылку на оплату нужно заменить.
-//    Когда вставите настоящую платёжную ссылку — этот код сам перестанет
-//    срабатывать, удалять его не обязательно.
-document.querySelectorAll('a.btn-buy').forEach((button) => {
-  button.addEventListener('click', (event) => {
-    const href = button.getAttribute('href');
-    if (href === '#' || href === '') {
-      event.preventDefault();
-      // Текст заглушки зависит от языка страницы (<html lang="ru"> или "en")
-      const isEnglish = document.documentElement.lang === 'en';
-      console.warn(
-        'Кнопка оплаты пока ведёт на заглушку. ' +
-        'Замените href у кнопки .btn-buy на вашу платёжную ссылку.'
-      );
-      alert(isEnglish
-        ? 'Payment coming soon 🙂 The link is set in en.html (the .btn-buy button).'
-        : 'Здесь будет оплата 🙂 Ссылка подключается в index.html (кнопка .btn-buy).');
-    }
-  });
+
+/* --------------------------------------------------------------------------
+   3. Отправка формы
+   -------------------------------------------------------------------------- */
+
+const form = document.getElementById('preorder-form');
+const status = document.getElementById('form-status');
+const submitButton = form.querySelector('button[type="submit"]');
+
+// Показать сообщение под формой
+function showStatus(text, kind) {
+  status.textContent = text;
+  status.classList.remove('is-error', 'is-success');
+  if (kind) status.classList.add('is-' + kind);
+}
+
+// Простая проверка: что-то@что-то.что-то
+function isValidEmail(value) {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(value.trim());
+}
+
+form.addEventListener('submit', async (event) => {
+  event.preventDefault();
+
+  const email = emailInput.value.trim();
+
+  // Проверяем адрес до отправки
+  if (!isValidEmail(email)) {
+    emailInput.classList.add('has-error');
+    showStatus('Проверьте адрес — кажется, в нём опечатка.', 'error');
+    emailInput.focus();
+    return;
+  }
+  emailInput.classList.remove('has-error');
+
+  // Форма ещё не подключена к сервису — честно говорим об этом,
+  // вместо того чтобы молча потерять адрес.
+  if (!FORM_ENDPOINT) {
+    showStatus('Приём предзаказов откроется совсем скоро. Напишите нам на почту из футера — добавим вас в список.', 'error');
+    console.warn(
+      'Форма не подключена: заполните FORM_ENDPOINT в начале файла script.js, ' +
+      'иначе адреса посетителей никуда не сохраняются.'
+    );
+    return;
+  }
+
+  // Отправляем
+  submitButton.disabled = true;
+  showStatus('Отправляем…');
+
+  try {
+    const response = await fetch(FORM_ENDPOINT, {
+      method: 'POST',
+      headers: { Accept: 'application/json' },
+      body: new FormData(form),
+    });
+
+    if (!response.ok) throw new Error('HTTP ' + response.status);
+
+    form.reset();
+    showStatus('Готово. Пришлём письмо, когда откроем продажи.', 'success');
+  } catch (error) {
+    showStatus('Не получилось отправить. Проверьте соединение и попробуйте ещё раз.', 'error');
+    console.error('Ошибка отправки формы:', error);
+  } finally {
+    submitButton.disabled = false;
+  }
+});
+
+// Убираем подсветку ошибки, как только человек начал править адрес
+emailInput.addEventListener('input', () => {
+  emailInput.classList.remove('has-error');
 });
