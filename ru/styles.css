@@ -220,17 +220,8 @@ a {
   width: 100%;
 }
 
-/* Внутри блока с краской кнопка берёт эту краску */
-.slide .btn,
-.product .btn {
-  background: var(--c);
-  border-color: var(--c);
-}
-
-.slide .btn:hover,
-.product .btn:hover {
-  filter: brightness(0.88);
-}
+/* Кнопки всегда хвойные — это основная краска марки.
+   Другие краски живут только на обложках в каталоге. */
 
 /* Тихая ссылка со стрелкой */
 .link-arrow {
@@ -358,7 +349,7 @@ a {
   padding-bottom: clamp(56px, 8vw, 96px);
 }
 
-/* Пилюля над заголовком слайда */
+/* Пилюля над заголовком слайда — хвоей, как и вся марка */
 .pill {
   display: inline-block;
   font-family: var(--font-mono);
@@ -366,8 +357,8 @@ a {
   font-weight: 600;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--c);
-  border: 1px solid color-mix(in srgb, var(--c) 35%, transparent);
+  color: var(--pine);
+  border: 1px solid color-mix(in srgb, var(--pine) 35%, transparent);
   border-radius: 999px;
   padding: 7px 16px;
   margin-bottom: 22px;
