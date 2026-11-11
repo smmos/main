@@ -5,79 +5,272 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- SEO: заголовок и описание страницы (можно менять текст) -->
-  <title>РЕШЕНИЕ — бумажный блокнот-протокол · VIZHU</title>
-  <meta name="description" content="«Решение» — бумажный блокнот для одного важного решения. Шесть стадий: от постановки вопроса до решения с датой пересмотра. Открыт предзаказ.">
+  <title>vizhu.notes — блокноты-протоколы для важных решений</title>
+  <meta name="description" content="vizhu.notes — серия бумажных блокнотов «Решение»: протокол из шести стадий для одного важного решения. Профессия, переезд, деньги, отношения. Открыт предзаказ.">
 
   <!-- Шрифты подключены локально из папки fonts/ — внешних запросов нет,
        сайт одинаково открывается в России без VPN. -->
   <link rel="stylesheet" href="fonts.css">
   <link rel="stylesheet" href="styles.css">
 
-  <!-- Иконка вкладки браузера -->
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%232D4A3E'/><text x='50' y='70' font-size='54' text-anchor='middle' fill='%23F5F1E8' font-family='monospace'>V</text></svg>">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%232D4A3E'/><circle cx='50' cy='62' r='10' fill='%23F5F1E8'/></svg>">
 </head>
 <body>
 
   <!-- ============================================================
-       ШАПКА — марка слева, кнопка предзаказа справа
+       ШАПКА — марка слева, разделы по центру, предзаказ справа
        ============================================================ -->
   <header class="site-header" id="site-header">
     <div class="container header-inner">
-      <a href="#hero" class="logo">VIZHU</a>
-      <a href="#preorder" class="btn btn-small" data-scroll-to-email>Предзаказ</a>
+      <a href="#top" class="logo">vizhu<span class="logo-dot">.</span>notes</a>
+
+      <nav class="site-nav" aria-label="Разделы сайта">
+        <a href="#catalog">Блокноты</a>
+        <a href="#method">Метод</a>
+        <a href="#about">О серии</a>
+      </nav>
+
+      <a href="#preorder" class="btn btn-small" data-preorder>Предзаказ</a>
     </div>
   </header>
 
   <!-- ============================================================
-       1. ОБЛОЖКА — первый экран.
-       Композиция повторяет печатную обложку блокнота.
+       1. СЛАЙДЕР — по слайду на каждый блокнот.
+       Листается сам раз в 6 секунд, останавливается при наведении.
+       Фон слайда — светлый оттенок краски этого блокнота,
+       поэтому первый экран перекрашивается вместе с обложкой.
+
+       КАК ДОБАВИТЬ СЛАЙД: скопируйте любой <article class="slide">,
+       поменяйте --c, название и текст, и добавьте одну <button>
+       в блок с точками ниже.
        ============================================================ -->
-  <section class="hero" id="hero">
-    <div class="container hero-inner">
-      <p class="hero-topline">Протокол одного решения&nbsp;·&nbsp;6&nbsp;стадий</p>
+  <section class="hero" id="top">
+    <div class="slider" id="slider">
 
-      <h1 class="hero-title">Решение</h1>
-      <p class="hero-brand">VIZHU</p>
+      <article class="slide is-active" style="--c:#2d4a3e">
+        <div class="container slide-inner">
+          <div class="slide-cover">
+            <!-- КОГДА ПОЯВЯТСЯ ФОТО: замените этот блок на
+                 <img src="professiya.jpg" alt="Блокнот «Решение · Профессия»"> -->
+            <span class="cover">
+              <span class="cover-series">Решение</span>
+              <span class="cover-word">Профессия</span>
+              <span class="cover-kern"><i></i><i></i><i></i><i></i><i></i><i></i></span>
+            </span>
+          </div>
+          <div class="slide-text">
+            <p class="pill">Серия «Решение» · блокнот 01</p>
+            <h2 class="slide-title">Профессия</h2>
+            <p class="slide-sub">Оставаться, уходить в своё дело или менять всё</p>
+            <p class="slide-meta">A5 · шесть стадий · краска «хвоя»</p>
+            <div class="slide-actions">
+              <button class="btn" type="button" data-preorder data-notebook="Профессия · хвоя">Предзаказ</button>
+              <a href="#method" class="link-arrow">Как устроен метод</a>
+            </div>
+          </div>
+        </div>
+      </article>
 
-      <p class="hero-subtitle">
-        Бумажный блокнот для одного важного решения.
-        Не дневник&nbsp;— исследовательский протокол.
-      </p>
+      <article class="slide" style="--c:#b05c2f">
+        <div class="container slide-inner">
+          <div class="slide-cover">
+            <span class="cover">
+              <span class="cover-series">Решение</span>
+              <span class="cover-word">Переезд</span>
+              <span class="cover-kern"><i></i><i></i><i></i><i></i><i></i><i></i></span>
+            </span>
+          </div>
+          <div class="slide-text">
+            <p class="pill">Серия «Решение» · блокнот 02</p>
+            <h2 class="slide-title">Переезд</h2>
+            <p class="slide-sub">Менять город или страну, возвращаться или остаться</p>
+            <p class="slide-meta">A5 · шесть стадий · краска «терракота»</p>
+            <div class="slide-actions">
+              <button class="btn" type="button" data-preorder data-notebook="Переезд · терракота">Предзаказ</button>
+              <a href="#method" class="link-arrow">Как устроен метод</a>
+            </div>
+          </div>
+        </div>
+      </article>
 
-      <!-- Кнопка прокручивает к форме и ставит курсор в поле почты -->
-      <a href="#preorder" class="btn btn-paper" data-scroll-to-email>Оформить предзаказ</a>
+      <article class="slide" style="--c:#8e3b3b">
+        <div class="container slide-inner">
+          <div class="slide-cover">
+            <span class="cover">
+              <span class="cover-series">Решение</span>
+              <span class="cover-word">Деньги</span>
+              <span class="cover-kern"><i></i><i></i><i></i><i></i><i></i><i></i></span>
+            </span>
+          </div>
+          <div class="slide-text">
+            <p class="pill">Серия «Решение» · блокнот 03</p>
+            <h2 class="slide-title">Деньги</h2>
+            <p class="slide-sub">Крупная трата, долг или отказ от дохода ради другого</p>
+            <p class="slide-meta">A5 · шесть стадий · краска «винный»</p>
+            <div class="slide-actions">
+              <button class="btn" type="button" data-preorder data-notebook="Деньги · винный">Предзаказ</button>
+              <a href="#method" class="link-arrow">Как устроен метод</a>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="slide" style="--c:#3f4550">
+        <div class="container slide-inner">
+          <div class="slide-cover">
+            <span class="cover">
+              <span class="cover-series">Решение</span>
+              <span class="cover-word">Отношения</span>
+              <span class="cover-kern"><i></i><i></i><i></i><i></i><i></i><i></i></span>
+            </span>
+          </div>
+          <div class="slide-text">
+            <p class="pill">Серия «Решение» · блокнот 04</p>
+            <h2 class="slide-title">Отношения</h2>
+            <p class="slide-sub">Остаться, уйти или наконец поговорить</p>
+            <p class="slide-meta">A5 · шесть стадий · краска «графит»</p>
+            <div class="slide-actions">
+              <button class="btn" type="button" data-preorder data-notebook="Отношения · графит">Предзаказ</button>
+              <a href="#method" class="link-arrow">Как устроен метод</a>
+            </div>
+          </div>
+        </div>
+      </article>
+
     </div>
 
-    <!-- Керн-шкала: шесть слоёв краски по нижнему обрезу, как на обложке -->
-    <div class="kern" aria-hidden="true">
-      <span class="kern-seg kern-1"></span><span class="kern-seg kern-2"></span><span class="kern-seg kern-3"></span><span class="kern-seg kern-4"></span><span class="kern-seg kern-5"></span><span class="kern-seg kern-6"></span>
+    <!-- Точки переключения -->
+    <div class="dots" id="dots" role="tablist" aria-label="Блокноты серии">
+      <button type="button" role="tab" aria-label="Профессия" aria-selected="true"></button>
+      <button type="button" role="tab" aria-label="Переезд" aria-selected="false"></button>
+      <button type="button" role="tab" aria-label="Деньги" aria-selected="false"></button>
+      <button type="button" role="tab" aria-label="Отношения" aria-selected="false"></button>
     </div>
   </section>
 
   <!-- ============================================================
-       2. ЗАЧЕМ — коротко, два абзаца
+       2. БЕГУЩАЯ СТРОКА.
+       Текст продублирован дважды — так строка едет без разрыва.
+       Меняете текст — поменяйте в ОБЕИХ половинах одинаково.
        ============================================================ -->
-  <section class="section" id="why">
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track">
+      <span class="marquee-part">
+        Блокноты-протоколы vizhu.notes <b>·</b> формат A5, бумага «Кость» <b>·</b> шесть стадий одного решения <b>·</b> метод разработан социологом <b>·</b> открыт предзаказ <b>·</b>
+      </span>
+      <span class="marquee-part">
+        Блокноты-протоколы vizhu.notes <b>·</b> формат A5, бумага «Кость» <b>·</b> шесть стадий одного решения <b>·</b> метод разработан социологом <b>·</b> открыт предзаказ <b>·</b>
+      </span>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       3. ЧЕТЫРЕ ФАКТА О БЛОКНОТАХ.
+       Когда определитесь с доставкой и оплатой — замените
+       эти плашки на «СДЭК по России», «Оплата картой и СБП» и т. п.
+       ============================================================ -->
+  <section class="facts" id="about">
+    <div class="container facts-grid">
+      <div class="fact">
+        <p class="fact-title">Формат A5</p>
+        <p class="fact-text">Плотная бумага «Кость» — для карандаша и ручки, страницы не просвечивают.</p>
+      </div>
+      <div class="fact">
+        <p class="fact-title">Шесть стадий</p>
+        <p class="fact-text">Один протокол на всю серию: от постановки вопроса до решения с подписью.</p>
+      </div>
+      <div class="fact">
+        <p class="fact-title">Метод, а не советы</p>
+        <p class="fact-text">Основан на качественной социологии. Разработан социологом со степенью PhD.</p>
+      </div>
+      <div class="fact">
+        <p class="fact-title">Дата пересмотра</p>
+        <p class="fact-text">Решение — не приговор: в финале назначаются два пересмотра, через 3 и 12 месяцев.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       4. КАТАЛОГ — все блокноты серии, у каждого свой предзаказ.
+       КАК ДОБАВИТЬ БЛОКНОТ: скопируйте <article class="product">,
+       поменяйте --c, название, описание и data-notebook у кнопки.
+       ============================================================ -->
+  <section class="section" id="catalog">
+    <div class="container">
+      <p class="eyebrow">Серия «Решение»</p>
+      <h2 class="section-title">Один метод, четыре решения</h2>
+      <p class="section-lead">
+        Блокноты устроены одинаково — различаются краска и вопрос, на который
+        они отвечают. Цвет кодирует тему: так тома различимы на полке издалека.
+      </p>
+
+      <div class="catalog">
+
+        <article class="product" style="--c:#2d4a3e">
+          <span class="cover">
+            <span class="cover-series">Решение</span>
+            <span class="cover-word">Профессия</span>
+            <span class="cover-kern"><i></i><i></i><i></i><i></i><i></i><i></i></span>
+          </span>
+          <p class="product-ink">01 · Хвоя</p>
+          <h3 class="product-title">Профессия</h3>
+          <p class="product-text">Оставаться в профессии, уходить в своё дело или менять всё.</p>
+          <button class="btn btn-wide" type="button" data-preorder data-notebook="Профессия · хвоя">Предзаказ</button>
+        </article>
+
+        <article class="product" style="--c:#b05c2f">
+          <span class="cover">
+            <span class="cover-series">Решение</span>
+            <span class="cover-word">Переезд</span>
+            <span class="cover-kern"><i></i><i></i><i></i><i></i><i></i><i></i></span>
+          </span>
+          <p class="product-ink">02 · Терракота</p>
+          <h3 class="product-title">Переезд</h3>
+          <p class="product-text">Менять город или страну, возвращаться или остаться. Про место, а не логистику.</p>
+          <button class="btn btn-wide" type="button" data-preorder data-notebook="Переезд · терракота">Предзаказ</button>
+        </article>
+
+        <article class="product" style="--c:#8e3b3b">
+          <span class="cover">
+            <span class="cover-series">Решение</span>
+            <span class="cover-word">Деньги</span>
+            <span class="cover-kern"><i></i><i></i><i></i><i></i><i></i><i></i></span>
+          </span>
+          <p class="product-ink">03 · Винный</p>
+          <h3 class="product-title">Деньги</h3>
+          <p class="product-text">Крупная трата, долг или отказ от дохода ради другого. Про цену решения.</p>
+          <button class="btn btn-wide" type="button" data-preorder data-notebook="Деньги · винный">Предзаказ</button>
+        </article>
+
+        <article class="product" style="--c:#3f4550">
+          <span class="cover">
+            <span class="cover-series">Решение</span>
+            <span class="cover-word">Отношения</span>
+            <span class="cover-kern"><i></i><i></i><i></i><i></i><i></i><i></i></span>
+          </span>
+          <p class="product-ink">04 · Графит</p>
+          <h3 class="product-title">Отношения</h3>
+          <p class="product-text">Остаться, уйти или наконец поговорить. Самая тихая книга серии.</p>
+          <button class="btn btn-wide" type="button" data-preorder data-notebook="Отношения · графит">Предзаказ</button>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       5. МЕТОД — общий для всех блокнотов, шесть стадий
+       ============================================================ -->
+  <section class="section section-tinted" id="method">
     <div class="container narrow">
-      <p class="eyebrow">Зачем</p>
+      <p class="eyebrow">Общий метод</p>
       <h2 class="section-title">Одно важное решение&nbsp;— как небольшое исследование, а&nbsp;не&nbsp;как приступ тревоги в&nbsp;три часа ночи</h2>
-      <p class="lede">
+      <p class="section-lead">
         Метод пришёл из качественной социологии: сначала вопрос, потом гипотезы,
         потом наблюдение — и только затем решение, с датой пересмотра.
         Блокнот не даёт советов. Он задаёт структуру, в которой
         ваш собственный ответ становится виден.
       </p>
-      <p class="rule">Пишите карандашом, пока думаете; ручкой&nbsp;— то, что стало данными.</p>
-    </div>
-  </section>
-
-  <!-- ============================================================
-       3. ШЕСТЬ СТАДИЙ — по одной строке на стадию
-       ============================================================ -->
-  <section class="section" id="stages">
-    <div class="container narrow">
-      <p class="eyebrow">Что внутри</p>
-      <h2 class="section-title">Шесть стадий</h2>
 
       <ol class="stages">
         <li class="stage">
@@ -129,97 +322,59 @@
           </div>
         </li>
       </ol>
+
+      <p class="rule">Пишите карандашом, пока думаете; ручкой&nbsp;— то, что стало данными.</p>
     </div>
   </section>
 
   <!-- ============================================================
-       4. ОБЛОЖКИ — четыре краски.
-       Пока нарисованы кодом по печатному макету.
-       КОГДА ПОЯВЯТСЯ ФОТО: замените каждый <span class="cover">…</span>
-       на <img src="hvoya.jpg" alt="Блокнот «Решение», хвоя">
-       и положите файлы фотографий рядом с index.html.
-       ============================================================ -->
-  <section class="section" id="covers">
-    <div class="container narrow">
-      <p class="eyebrow">Обложка</p>
-      <h2 class="section-title">Четыре краски</h2>
-
-      <div class="covers">
-        <figure class="cover-item">
-          <span class="cover" style="--c:#2d4a3e">
-            <span class="cover-name">Решение</span>
-            <span class="cover-kern"><i></i><i></i><i></i><i></i><i></i><i></i></span>
-          </span>
-          <figcaption>Хвоя</figcaption>
-        </figure>
-        <figure class="cover-item">
-          <span class="cover" style="--c:#b05c2f">
-            <span class="cover-name">Решение</span>
-            <span class="cover-kern"><i></i><i></i><i></i><i></i><i></i><i></i></span>
-          </span>
-          <figcaption>Терракота</figcaption>
-        </figure>
-        <figure class="cover-item">
-          <span class="cover" style="--c:#8e3b3b">
-            <span class="cover-name">Решение</span>
-            <span class="cover-kern"><i></i><i></i><i></i><i></i><i></i><i></i></span>
-          </span>
-          <figcaption>Винный</figcaption>
-        </figure>
-        <figure class="cover-item">
-          <span class="cover" style="--c:#3f4550">
-            <span class="cover-name">Решение</span>
-            <span class="cover-kern"><i></i><i></i><i></i><i></i><i></i><i></i></span>
-          </span>
-          <figcaption>Графит</figcaption>
-        </figure>
-      </div>
-
-      <p class="covers-note">Формат A5, плотная бумага «Кость» — для карандаша и ручки.</p>
-    </div>
-  </section>
-
-  <!-- ============================================================
-       5. ПРЕДЗАКАЗ — форма сбора почты.
-       ВАЖНО: форму нужно подключить к сервису, иначе письма
-       никуда не уйдут. Адрес сервиса вписывается в script.js,
-       в самую первую строку (FORM_ENDPOINT).
+       6. ПРЕДЗАКАЗ — одна форма на все блокноты.
+       Любая кнопка «Предзаказ» подставляет сюда свой блокнот.
        ============================================================ -->
   <section class="section section-pine" id="preorder">
     <div class="container narrow">
       <p class="eyebrow eyebrow-light">Предзаказ</p>
-      <h2 class="section-title">Блокнот готовится к&nbsp;печати</h2>
+      <h2 class="section-title">Блокноты готовятся к&nbsp;печати</h2>
       <p class="lede lede-light">
-        Оставьте почту — пришлём письмо, когда откроем продажи:
-        с ценой, сроками доставки и выбором обложки.
+        Выберите блокнот и оставьте почту — напишем, когда откроем продажи:
+        с ценой, сроками и доставкой.
       </p>
 
       <form class="preorder-form" id="preorder-form" novalidate>
-        <label class="sr-only" for="email">Электронная почта</label>
-        <input
-          type="email"
-          id="email"
-          name="email"
-          class="preorder-input"
-          placeholder="pochta@example.com"
-          autocomplete="email"
-          required>
-        <button type="submit" class="btn btn-paper">Записаться</button>
+        <fieldset class="picker">
+          <legend class="sr-only">Какой блокнот вас интересует</legend>
+          <label class="pick"><input type="radio" name="notebook" value="Профессия · хвоя" checked><span>Профессия</span></label>
+          <label class="pick"><input type="radio" name="notebook" value="Переезд · терракота"><span>Переезд</span></label>
+          <label class="pick"><input type="radio" name="notebook" value="Деньги · винный"><span>Деньги</span></label>
+          <label class="pick"><input type="radio" name="notebook" value="Отношения · графит"><span>Отношения</span></label>
+          <label class="pick"><input type="radio" name="notebook" value="Вся серия"><span>Вся серия</span></label>
+        </fieldset>
+
+        <div class="preorder-row">
+          <label class="sr-only" for="email">Электронная почта</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            class="preorder-input"
+            placeholder="pochta@example.com"
+            autocomplete="email"
+            required>
+          <button type="submit" class="btn btn-paper">Записаться</button>
+        </div>
       </form>
 
-      <!-- Сюда скрипт выводит результат отправки -->
       <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
-
       <p class="form-note">Одно письмо о запуске. Ни рассылок, ни передачи почты третьим лицам.</p>
     </div>
   </section>
 
   <!-- ============================================================
-       6. ФУТЕР
+       7. ФУТЕР
        ============================================================ -->
   <footer class="site-footer">
-    <div class="container narrow footer-inner">
-      <p class="footer-brand">VIZHU</p>
+    <div class="container footer-inner">
+      <p class="footer-brand">vizhu<span class="logo-dot">.</span>notes</p>
       <p class="footer-text">
         <!-- Замените на свою почту -->
         <a href="mailto:hello@example.com">hello@example.com</a>
@@ -227,7 +382,7 @@
         <a href="#" rel="noopener">Telegram</a>
         <a href="#" rel="noopener">VK</a>
       </p>
-      <p class="footer-bottom">© 2026 VIZHU. Метод разработан социологом (PhD).</p>
+      <p class="footer-bottom">© 2026 vizhu.notes. Метод разработан социологом (PhD).</p>
     </div>
   </footer>
 

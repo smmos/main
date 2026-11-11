@@ -1,14 +1,13 @@
 /* ==========================================================================
-   VIZHU · «РЕШЕНИЕ» — стили сайта
+   vizhu.notes — стили сайта
    --------------------------------------------------------------------------
-   Дизайн взят с печатных макетов блокнота:
-   — плашка хвои на тёплой бумаге «Кость», винный как единственный акцент;
+   Дизайн взят с печатных макетов блокнотов:
+   — плашка краски на тёплой бумаге «Кость», своя краска у каждой темы;
    — IBM Plex Sans для текста, IBM Plex Mono для всех служебных надписей;
-   — керн-шкала (шесть растяжек краски) — единственный графический приём;
+   — керн-шкала (шесть растяжек краски) — главный графический приём;
    — документная вёрстка: тонкие линии, прямые углы, без теней.
 
    Всё, что обычно хочется поменять, собрано в блоке :root ниже.
-   Меняете цвет или шрифт там — он меняется на всём сайте.
 
    ВНИМАНИЕ: приложение (app.html) использует отсюда переменные и классы
    .container, .site-header, .logo, .btn, .eyebrow, .kern* — не удаляйте их.
@@ -16,16 +15,16 @@
 
 :root {
   /* --- Палитра серии (печать → веб) --- */
-  --pine: #2d4a3e;        /* хвоя, Pantone 3435 U — плашка обложки */
+  --pine: #2d4a3e;        /* хвоя, Pantone 3435 U — основная краска марки */
   --pine-deep: #243d33;   /* хвоя темнее — наведение на кнопку */
   --paper: #f5f1e8;       /* бумага «Кость» — фон страницы */
   --paper-page: #faf8f1;  /* чуть светлее — приподнятые блоки */
   --graphite: #3f4550;    /* графит Black 4 U — второстепенный текст */
-  --wine: #8e3b3b;        /* винный — единственный акцент */
+  --wine: #8e3b3b;        /* винный */
   --ink: #242b27;         /* основной текст */
   --line: #d8d2c4;        /* тонкие линии */
 
-  /* Растяжки хвои для керн-шкалы (стадии 1 → 6, от плашки к бумаге) */
+  /* Растяжки хвои для керн-шкалы в шапке и подвале */
   --kern-1: #2d4a3e;
   --kern-2: #556b60;
   --kern-3: #798a7f;
@@ -38,9 +37,9 @@
   --font-mono: "IBM Plex Mono", monospace;
 
   /* --- Ритм --- */
-  --section-gap: clamp(72px, 11vw, 136px); /* воздух между блоками */
-  --container: 1040px;
-  --narrow: 620px;                          /* ширина колонки с текстом */
+  --section-gap: clamp(64px, 9vw, 112px);
+  --container: 1180px;
+  --narrow: 620px;
 }
 
 /* --- Базовый сброс --- */
@@ -90,14 +89,13 @@ a {
   white-space: nowrap;
 }
 
-/* --- Контейнеры --- */
 .container {
   max-width: var(--container);
   margin: 0 auto;
   padding: 0 24px;
 }
 
-/* Узкая колонка — почти весь сайт набран в ней */
+/* Узкая колонка — для разделов со сплошным текстом */
 .narrow {
   max-width: calc(var(--narrow) + 48px);
 }
@@ -106,7 +104,6 @@ a {
    ОБЩАЯ ТИПОГРАФИКА
    ========================================================================== */
 
-/* Служебная надпись над заголовком — моно, капс, разрядка */
 .eyebrow {
   font-family: var(--font-mono);
   font-size: 11px;
@@ -114,10 +111,9 @@ a {
   letter-spacing: 0.24em;
   text-transform: uppercase;
   color: var(--pine);
-  margin-bottom: 20px;
+  margin-bottom: 18px;
 }
 
-/* Та же надпись на тёмной плашке */
 .eyebrow-light {
   color: rgba(245, 241, 232, 0.65);
 }
@@ -128,13 +124,15 @@ a {
   line-height: 1.28;
   letter-spacing: -0.01em;
   text-wrap: balance;
-  margin-bottom: 24px;
+  margin-bottom: 20px;
 }
 
-/* Основной абзац под заголовком */
+.section-lead,
 .lede {
   color: var(--graphite);
   font-size: clamp(16px, 2vw, 18px);
+  max-width: 62ch;
+  margin-bottom: 44px;
 }
 
 .lede-light {
@@ -145,7 +143,12 @@ a {
   padding: var(--section-gap) 0;
 }
 
-/* Секция плашкой хвои (предзаказ) */
+.section-tinted {
+  background: var(--paper-page);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
 .section-pine {
   background: var(--pine);
   color: var(--paper);
@@ -157,7 +160,7 @@ a {
 
 /* Правило карандаша и ручки — набрано моно, как сноска на полях */
 .rule {
-  margin-top: 28px;
+  margin-top: 36px;
   font-family: var(--font-mono);
   font-size: 13px;
   line-height: 1.6;
@@ -167,14 +170,14 @@ a {
 }
 
 /* ==========================================================================
-   КНОПКИ — документные: прямые углы, моно-надпись капсом
+   КНОПКИ И ССЫЛКИ
    ========================================================================== */
 
 .btn {
   display: inline-block;
   font-family: var(--font-mono);
   font-weight: 600;
-  font-size: 14px;
+  font-size: 13px;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   text-decoration: none;
@@ -183,7 +186,7 @@ a {
   background: var(--pine);
   border: 1px solid var(--pine);
   border-radius: 2px;
-  padding: 15px 34px;
+  padding: 15px 32px;
   cursor: pointer;
   transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
 }
@@ -193,7 +196,7 @@ a {
   border-color: var(--pine-deep);
 }
 
-/* Кнопка на плашке хвои: бумажная заливка, хвойный текст */
+/* Кнопка на плашке краски: бумажная заливка */
 .btn-paper {
   color: var(--pine);
   background: var(--paper);
@@ -211,6 +214,46 @@ a {
   font-size: 11px;
 }
 
+/* Кнопка во всю ширину карточки товара */
+.btn-wide {
+  display: block;
+  width: 100%;
+}
+
+/* Внутри блока с краской кнопка берёт эту краску */
+.slide .btn,
+.product .btn {
+  background: var(--c);
+  border-color: var(--c);
+}
+
+.slide .btn:hover,
+.product .btn:hover {
+  filter: brightness(0.88);
+}
+
+/* Тихая ссылка со стрелкой */
+.link-arrow {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--graphite);
+  text-decoration: none;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 3px;
+  white-space: nowrap;
+}
+
+.link-arrow::after {
+  content: " →";
+}
+
+.link-arrow:hover {
+  color: var(--ink);
+  border-color: var(--ink);
+}
+
 /* ==========================================================================
    ШАПКА
    ========================================================================== */
@@ -225,7 +268,6 @@ a {
   transition: border-color 0.2s ease;
 }
 
-/* Класс добавляет скрипт при прокрутке — появляется тонкая линия */
 .site-header.is-scrolled {
   border-bottom-color: var(--line);
 }
@@ -234,7 +276,7 @@ a {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 16px;
+  gap: 24px;
   padding-top: 14px;
   padding-bottom: 14px;
 }
@@ -246,79 +288,487 @@ a {
   gap: 18px;
 }
 
-/* Марка — моно капсом с разрядкой */
+/* Марка — строчными, как в названии vizhu.notes */
 .logo {
   font-family: var(--font-mono);
   font-weight: 600;
-  font-size: 15px;
-  letter-spacing: 0.3em;
-  text-transform: uppercase;
+  font-size: 17px;
+  letter-spacing: 0.04em;
   color: var(--ink);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+/* Точка в названии — краской марки */
+.logo-dot {
+  color: var(--pine);
+}
+
+.site-nav {
+  display: flex;
+  gap: 28px;
+  margin-left: auto;
+  margin-right: 8px;
+}
+
+.site-nav a {
+  font-size: 15px;
+  color: var(--graphite);
   text-decoration: none;
 }
 
+.site-nav a:hover {
+  color: var(--ink);
+}
+
 /* ==========================================================================
-   1. ОБЛОЖКА (первый экран)
+   1. СЛАЙДЕР
+   Слайды лежат в одной ячейке сетки друг над другом и проявляются
+   по очереди — так высота блока равна самому высокому слайду
+   и ничего не прыгает при переключении.
    ========================================================================== */
 
 .hero {
-  background: var(--pine);
-  color: var(--paper);
-  text-align: center;
+  position: relative;
 }
 
-.hero-inner {
-  display: flex;
-  flex-direction: column;
+.slider {
+  display: grid;
+}
+
+.slide {
+  grid-area: 1 / 1;              /* все слайды в одной ячейке */
+  background: color-mix(in srgb, var(--c) 10%, var(--paper));
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.6s ease, visibility 0.6s;
+}
+
+.slide.is-active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.slide-inner {
+  display: grid;
+  grid-template-columns: minmax(0, 320px) minmax(0, 1fr);
+  gap: clamp(32px, 6vw, 72px);
   align-items: center;
-  padding-top: clamp(88px, 13vw, 160px);
-  padding-bottom: clamp(80px, 12vw, 140px);
+  padding-top: clamp(48px, 7vw, 88px);
+  padding-bottom: clamp(56px, 8vw, 96px);
 }
 
-.hero-topline {
+/* Пилюля над заголовком слайда */
+.pill {
+  display: inline-block;
   font-family: var(--font-mono);
   font-size: 11px;
-  font-weight: 500;
-  letter-spacing: 0.3em;
+  font-weight: 600;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: rgba(245, 241, 232, 0.7);
-  margin-bottom: clamp(48px, 8vw, 88px);
+  color: var(--c);
+  border: 1px solid color-mix(in srgb, var(--c) 35%, transparent);
+  border-radius: 999px;
+  padding: 7px 16px;
+  margin-bottom: 22px;
 }
 
-/* Название — моноширинный капс с большой разрядкой, как на обложке */
-.hero-title {
-  font-family: var(--font-mono);
-  font-weight: 500;
-  font-size: clamp(36px, 7.5vw, 76px);
-  letter-spacing: 0.3em;
-  margin-left: 0.3em; /* компенсирует разрядку после последней буквы */
-  text-transform: uppercase;
-  line-height: 1.1;
-  margin-bottom: 20px;
+/* Название блокнота — крупно, но это НЕ марка */
+.slide-title {
+  font-weight: 700;
+  font-size: clamp(38px, 7vw, 68px);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  margin-bottom: 14px;
 }
 
-/* Марка под названием */
-.hero-brand {
-  font-family: var(--font-mono);
-  font-size: 12px;
-  font-weight: 500;
-  letter-spacing: 0.34em;
-  text-transform: uppercase;
-  color: rgba(245, 241, 232, 0.7);
-  margin-bottom: clamp(36px, 6vw, 56px);
-}
-
-.hero-subtitle {
-  font-size: clamp(16px, 2.2vw, 19px);
-  line-height: 1.7;
-  color: rgba(245, 241, 232, 0.9);
-  max-width: 44ch;
-  margin-bottom: 40px;
+.slide-sub {
+  font-size: clamp(17px, 2.2vw, 21px);
+  color: var(--graphite);
+  max-width: 34ch;
+  margin-bottom: 18px;
   text-wrap: balance;
 }
 
+.slide-meta {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--graphite);
+  opacity: 0.75;
+  margin-bottom: 30px;
+}
+
+.slide-actions {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+/* Точки переключения слайдов */
+.dots {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 22px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.dots button {
+  width: 28px;
+  height: 4px;
+  border: none;
+  border-radius: 2px;
+  background: rgba(36, 43, 39, 0.22);
+  cursor: pointer;
+  padding: 0;
+  transition: background 0.2s ease, width 0.2s ease;
+}
+
+.dots button[aria-selected="true"] {
+  background: var(--ink);
+  width: 44px;
+}
+
 /* ==========================================================================
-   КЕРН-ШКАЛА — шесть растяжек краски по нижнему обрезу
+   ОБЛОЖКА БЛОКНОТА — рисуется кодом по печатному макету.
+   Краска задаётся переменной --c на родителе (слайд или карточка).
+   ========================================================================== */
+
+.cover {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  aspect-ratio: 1 / 1.41;         /* пропорции A5 */
+  background: var(--c);
+  color: var(--paper);
+  border-radius: 2px;
+  padding: 14% 10% 0;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Название серии — мелко, сверху */
+.cover-series {
+  font-family: var(--font-mono);
+  font-size: clamp(7px, 0.75vw, 10px);
+  font-weight: 500;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  opacity: 0.7;
+}
+
+/* Слово темы — то, что меняется от блокнота к блокноту */
+.cover-word {
+  font-family: var(--font-mono);
+  font-weight: 500;
+  font-size: clamp(11px, 1.5vw, 19px);
+  letter-spacing: 0.22em;
+  margin-left: 0.22em;
+  text-transform: uppercase;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+/* Керн-шкала по нижнему обрезу обложки */
+.cover-kern {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.cover-kern i {
+  height: 10px;
+}
+
+.cover-kern i:nth-child(1) { background: color-mix(in srgb, var(--c) 88%, #000); }
+.cover-kern i:nth-child(2) { background: color-mix(in srgb, var(--c) 80%, var(--paper)); }
+.cover-kern i:nth-child(3) { background: color-mix(in srgb, var(--c) 62%, var(--paper)); }
+.cover-kern i:nth-child(4) { background: color-mix(in srgb, var(--c) 45%, var(--paper)); }
+.cover-kern i:nth-child(5) { background: color-mix(in srgb, var(--c) 28%, var(--paper)); }
+.cover-kern i:nth-child(6) { background: color-mix(in srgb, var(--c) 12%, var(--paper)); }
+
+/* ==========================================================================
+   2. БЕГУЩАЯ СТРОКА
+   Две одинаковые половины едут влево; когда проехала первая,
+   анимация прыгает в начало — шва не видно.
+   ========================================================================== */
+
+.marquee {
+  overflow: hidden;
+  background: var(--pine);
+  color: var(--paper);
+  padding: 13px 0;
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 38s linear infinite;
+}
+
+.marquee-part {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  padding-right: 48px;
+}
+
+.marquee-part b {
+  color: rgba(245, 241, 232, 0.45);
+  margin: 0 10px;
+  font-weight: 400;
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+/* ==========================================================================
+   3. ЧЕТЫРЕ ФАКТА
+   ========================================================================== */
+
+.facts {
+  padding: clamp(40px, 6vw, 64px) 0;
+}
+
+.facts-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+}
+
+.fact {
+  border: 1px solid var(--line);
+  border-radius: 2px;
+  padding: 22px 22px 24px;
+}
+
+.fact-title {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--pine);
+  margin-bottom: 10px;
+}
+
+.fact-text {
+  font-size: 14.5px;
+  line-height: 1.6;
+  color: var(--graphite);
+}
+
+/* ==========================================================================
+   4. КАТАЛОГ
+   ========================================================================== */
+
+.catalog {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.product {
+  display: flex;
+  flex-direction: column;
+}
+
+.product .cover {
+  margin-bottom: 18px;
+}
+
+.product-ink {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--c);
+  margin-bottom: 6px;
+}
+
+.product-title {
+  font-weight: 600;
+  font-size: 20px;
+  margin-bottom: 8px;
+}
+
+.product-text {
+  font-size: 14.5px;
+  line-height: 1.6;
+  color: var(--graphite);
+  margin-bottom: 20px;
+  flex-grow: 1;   /* прижимает кнопки всех карточек к одной линии */
+}
+
+/* ==========================================================================
+   5. ШЕСТЬ СТАДИЙ — список на тонких линиях, без карточек
+   ========================================================================== */
+
+.stages {
+  list-style: none;
+  border-top: 1px solid var(--line);
+}
+
+.stage {
+  display: flex;
+  gap: 24px;
+  align-items: baseline;
+  padding: 24px 2px;
+  border-bottom: 1px solid var(--line);
+}
+
+.stage-num {
+  flex-shrink: 0;
+  width: 28px;
+  font-family: var(--font-mono);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--pine);
+}
+
+.stage-title {
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 1.4;
+  margin-bottom: 4px;
+}
+
+.stage-text {
+  color: var(--graphite);
+  font-size: 15.5px;
+  line-height: 1.6;
+}
+
+.stage-meta {
+  margin-top: 8px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--graphite);
+  opacity: 0.7;
+}
+
+/* ==========================================================================
+   6. ФОРМА ПРЕДЗАКАЗА
+   ========================================================================== */
+
+/* Выбор блокнота — пилюли-переключатели */
+.picker {
+  border: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.pick input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.pick span {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(245, 241, 232, 0.8);
+  border: 1px solid rgba(245, 241, 232, 0.35);
+  border-radius: 999px;
+  padding: 8px 18px;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.pick span:hover {
+  border-color: var(--paper);
+  color: var(--paper);
+}
+
+/* Выбранная пилюля — заливка бумагой */
+.pick input:checked + span {
+  background: var(--paper);
+  border-color: var(--paper);
+  color: var(--pine);
+}
+
+/* Рамка вокруг пилюли при переходе с клавиатуры */
+.pick input:focus-visible + span {
+  outline: 2px solid var(--paper);
+  outline-offset: 3px;
+}
+
+.preorder-row {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.preorder-input {
+  flex: 1 1 240px;
+  min-width: 0;
+  font-family: var(--font-sans);
+  font-size: 16px; /* 16px и больше — иначе iPhone зумит страницу при фокусе */
+  color: var(--paper);
+  background: transparent;
+  border: 1px solid rgba(245, 241, 232, 0.4);
+  border-radius: 2px;
+  padding: 14px 16px;
+}
+
+.preorder-input::placeholder {
+  color: rgba(245, 241, 232, 0.45);
+}
+
+.preorder-input:focus {
+  border-color: var(--paper);
+  outline: none;
+}
+
+.preorder-input.has-error {
+  border-color: #e8a0a0;
+}
+
+.form-status {
+  margin-top: 16px;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  line-height: 1.6;
+  min-height: 1.6em; /* резервируем место, чтобы блок не прыгал */
+}
+
+.form-status.is-error {
+  color: #f0b4b4;
+}
+
+.form-status.is-success {
+  color: var(--paper);
+}
+
+.form-note {
+  margin-top: 20px;
+  font-size: 13px;
+  color: rgba(245, 241, 232, 0.6);
+}
+
+/* ==========================================================================
+   КЕРН-ШКАЛА (используется приложением app.html)
    ========================================================================== */
 
 .kern {
@@ -347,7 +797,6 @@ a {
 .kern-5 { background: var(--kern-5); color: var(--pine-deep); }
 .kern-6 { background: var(--kern-6); color: var(--pine-deep); }
 
-/* Номер и подпись стадии — используются в приложении (app.html) */
 .kern-num { opacity: 0.7; }
 .kern-label { letter-spacing: 0.18em; }
 
@@ -356,196 +805,7 @@ a {
 }
 
 /* ==========================================================================
-   3. ШЕСТЬ СТАДИЙ — список на тонких линиях, без карточек
-   ========================================================================== */
-
-.stages {
-  list-style: none;
-  border-top: 1px solid var(--line);
-}
-
-.stage {
-  display: flex;
-  gap: 24px;
-  align-items: baseline;
-  padding: 24px 2px;
-  border-bottom: 1px solid var(--line);
-}
-
-/* Номер стадии — моно, тихий */
-.stage-num {
-  flex-shrink: 0;
-  width: 28px;
-  font-family: var(--font-mono);
-  font-size: 15px;
-  font-weight: 600;
-  color: var(--pine);
-}
-
-.stage-title {
-  font-weight: 600;
-  font-size: 18px;
-  line-height: 1.4;
-  margin-bottom: 4px;
-}
-
-.stage-text {
-  color: var(--graphite);
-  font-size: 15.5px;
-  line-height: 1.6;
-}
-
-/* Тайминг стадии — моно, самым мелким кеглем */
-.stage-meta {
-  margin-top: 8px;
-  font-family: var(--font-mono);
-  font-size: 11px;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--graphite);
-  opacity: 0.7;
-}
-
-/* ==========================================================================
-   4. ОБЛОЖКИ — четыре краски, компактным рядом.
-   Цвет каждой задан переменной --c прямо в index.html;
-   растяжки керна считаются от неё автоматически через color-mix.
-   ========================================================================== */
-
-.covers {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 16px;
-}
-
-.cover-item {
-  text-align: center;
-}
-
-/* Пропорции A5 (1 : 1.41), плашка выбранной краски */
-.cover {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  aspect-ratio: 1 / 1.41;
-  background: var(--c);
-  color: var(--paper);
-  border-radius: 2px;
-  padding: 14% 8% 0;
-  position: relative;
-}
-
-.cover-name {
-  font-family: var(--font-mono);
-  font-weight: 500;
-  font-size: clamp(8px, 1vw, 12px);
-  letter-spacing: 0.26em;
-  margin-left: 0.26em;
-  text-transform: uppercase;
-  margin-bottom: auto;
-  margin-top: auto;
-}
-
-/* Керн-шкала по нижнему обрезу обложки, во всю ширину */
-.cover-kern {
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-}
-
-.cover-kern i {
-  height: 8px;
-}
-
-.cover-kern i:nth-child(1) { background: color-mix(in srgb, var(--c) 88%, #000); }
-.cover-kern i:nth-child(2) { background: color-mix(in srgb, var(--c) 80%, var(--paper)); }
-.cover-kern i:nth-child(3) { background: color-mix(in srgb, var(--c) 62%, var(--paper)); }
-.cover-kern i:nth-child(4) { background: color-mix(in srgb, var(--c) 45%, var(--paper)); }
-.cover-kern i:nth-child(5) { background: color-mix(in srgb, var(--c) 28%, var(--paper)); }
-.cover-kern i:nth-child(6) { background: color-mix(in srgb, var(--c) 12%, var(--paper)); }
-
-.cover-item figcaption {
-  font-family: var(--font-mono);
-  font-size: 10px;
-  font-weight: 600;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--graphite);
-  margin-top: 12px;
-}
-
-.covers-note {
-  margin-top: 28px;
-  font-size: 15px;
-  color: var(--graphite);
-}
-
-/* ==========================================================================
-   5. ПРЕДЗАКАЗ — форма сбора почты
-   ========================================================================== */
-
-.preorder-form {
-  display: flex;
-  gap: 12px;
-  margin-top: 32px;
-  flex-wrap: wrap;
-}
-
-.preorder-input {
-  flex: 1 1 240px;
-  min-width: 0;
-  font-family: var(--font-sans);
-  font-size: 16px; /* 16px и больше — иначе iPhone зумит страницу при фокусе */
-  color: var(--paper);
-  background: transparent;
-  border: 1px solid rgba(245, 241, 232, 0.4);
-  border-radius: 2px;
-  padding: 14px 16px;
-}
-
-.preorder-input::placeholder {
-  color: rgba(245, 241, 232, 0.45);
-}
-
-.preorder-input:focus {
-  border-color: var(--paper);
-  outline: none;
-}
-
-/* Поле с ошибкой подсвечивается — класс ставит скрипт */
-.preorder-input.has-error {
-  border-color: #e8a0a0;
-}
-
-/* Строка результата отправки */
-.form-status {
-  margin-top: 16px;
-  font-family: var(--font-mono);
-  font-size: 13px;
-  line-height: 1.6;
-  min-height: 1.6em; /* резервируем место, чтобы блок не прыгал */
-}
-
-.form-status.is-error {
-  color: #f0b4b4;
-}
-
-.form-status.is-success {
-  color: var(--paper);
-}
-
-.form-note {
-  margin-top: 24px;
-  font-size: 13px;
-  color: rgba(245, 241, 232, 0.6);
-}
-
-/* ==========================================================================
-   6. ФУТЕР
+   7. ФУТЕР
    ========================================================================== */
 
 .site-footer {
@@ -562,9 +822,8 @@ a {
 .footer-brand {
   font-family: var(--font-mono);
   font-weight: 600;
-  font-size: 15px;
-  letter-spacing: 0.3em;
-  text-transform: uppercase;
+  font-size: 17px;
+  letter-spacing: 0.04em;
   color: var(--ink);
 }
 
@@ -596,25 +855,85 @@ a {
    АДАПТИВНОСТЬ
    ========================================================================== */
 
+/* Планшеты */
+@media (max-width: 900px) {
+  .site-nav {
+    display: none; /* на планшете и телефоне разделы прячем, остаётся предзаказ */
+  }
+
+  .facts-grid,
+  .catalog {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Слайд: обложка сверху, текст под ней */
+  .slide-inner {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    text-align: center;
+  }
+
+  .slide-cover {
+    width: min(200px, 48vw);
+  }
+
+  .slide-sub {
+    max-width: 30ch;
+  }
+
+  .slide-actions {
+    justify-content: center;
+  }
+}
+
+/* Телефоны */
 @media (max-width: 600px) {
   body {
     font-size: 16px;
   }
 
-  /* Обложки: 2 × 2 вместо ряда из четырёх */
-  .covers {
+  .slide-inner {
+    padding-bottom: 72px; /* место под точки */
+  }
+
+  .slide-cover {
+    width: min(170px, 46vw);
+  }
+
+  .cover-word {
+    font-size: 13px;
+  }
+
+  .cover-series {
+    font-size: 8px;
+  }
+
+  .facts-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .catalog {
     grid-template-columns: repeat(2, 1fr);
-    gap: 14px;
+    gap: 16px;
   }
 
-  .cover-name {
-    font-size: 11px;
+  .product-title {
+    font-size: 17px;
   }
 
-  /* Кнопки на всю ширину — удобнее нажимать пальцем */
-  .hero .btn,
+  .product-text {
+    font-size: 13.5px;
+  }
+
+  .slide .btn,
   .preorder-form .btn {
     width: 100%;
+  }
+
+  .slide-actions {
+    width: 100%;
+    flex-direction: column;
+    gap: 16px;
   }
 
   .stage {
@@ -626,10 +945,15 @@ a {
   }
 }
 
-/* Уважаем системную настройку «меньше движения» */
+/* Уважаем системную настройку «меньше движения»:
+   бегущая строка замирает, слайды не перелистываются сами (см. script.js) */
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
+  }
+
+  .marquee-track {
+    animation: none;
   }
 
   * {
